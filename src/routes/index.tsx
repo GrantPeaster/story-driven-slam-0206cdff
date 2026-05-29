@@ -237,8 +237,19 @@ const PROBLEMS = [
 
 function Section2Problem() {
   return (
-    <section id="problem" className="relative py-32 bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="problem" className="relative py-32 bg-primary text-primary-foreground overflow-hidden">
+      <video
+        className="absolute inset-0 h-full w-full object-cover opacity-15 mix-blend-luminosity"
+        src="/media/mcprs.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/95 to-primary" />
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
           <div className="flex items-center gap-3 mb-6">
             <span className="font-mono text-xs text-brass">02 / Problem</span>
@@ -246,7 +257,9 @@ function Section2Problem() {
           </div>
           <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.02]">
             The transactional model is a risk you're absorbing —{" "}
-            <span className="text-brass">every single time.</span>
+            <span className="underline-sweep">
+              <span className="text-brass">every single time.</span>
+            </span>
           </h2>
           <p className="mt-8 text-lg text-primary-foreground/70 leading-relaxed">
             If you've worked with separate engineering, planning, and survey firms on the same
