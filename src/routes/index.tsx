@@ -90,11 +90,8 @@ function Nav() {
           <img
             src={gciLogo}
             alt="Georgia Civil — Civil Engineering, Landscape Architecture, Land Surveying"
-            className="h-9 w-auto"
+            className="h-10 sm:h-11 w-auto"
           />
-          <span className="hidden sm:inline-block text-[9px] uppercase tracking-[0.18em] text-muted-foreground border-l border-border pl-3">
-            The Elevator Pitch
-          </span>
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm">
           {SECTIONS.map((s, i) => (
