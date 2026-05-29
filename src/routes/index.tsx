@@ -43,7 +43,7 @@ const SECTIONS = [
 
 function PitchPage() {
   useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-fade, .brass-rule");
+    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-fade, .brass-rule, .underline-sweep");
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
@@ -125,7 +125,22 @@ function Section1Open() {
       id="open"
       className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden bg-gradient-hero"
     >
-      <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center w-full">
+      {/* Background hero video */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover opacity-30"
+        src="/media/farmview.mp4"
+        poster="/media/farmview.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-background/90" />
+      <div className="absolute inset-0 bg-gradient-hero opacity-80" />
+
+      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center w-full">
         <div className="lg:col-span-7 reveal">
           <div className="flex items-center gap-3 mb-8">
             <div className="brass-rule" />
@@ -135,13 +150,12 @@ function Section1Open() {
           </div>
           <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[0.98] text-primary">
             Don't settle for{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10">transactional</span>
-              <span className="absolute inset-x-0 bottom-2 h-3 bg-brass/40 -z-0" />
+            <span className="underline-sweep">
+              <span>transactional</span>
             </span>{" "}
             services.
           </h1>
-          <p className="mt-8 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+          <p className="mt-8 text-lg sm:text-xl text-foreground/75 max-w-2xl leading-relaxed">
             One team of planners, surveyors, and civil engineers — working the same project from
             day one. No handoffs. No data gaps. No surprises.
           </p>
@@ -159,12 +173,16 @@ function Section1Open() {
         <div className="lg:col-span-5 reveal-fade">
           <div className="relative">
             <div className="absolute -inset-6 bg-gradient-brass opacity-20 blur-3xl rounded-full" />
-            <div className="relative bg-card border border-border rounded-2xl p-8 shadow-elegant float-slow">
+            <div className="relative bg-card/95 backdrop-blur border border-border rounded-2xl p-8 shadow-elegant float-slow">
               <div className="text-[11px] uppercase tracking-[0.22em] text-brass font-semibold mb-6">
                 The Promise
               </div>
               <blockquote className="font-display text-2xl sm:text-3xl text-primary leading-snug">
-                "GCI: your <span className="text-accent">complete</span> project partner."
+                "GCI: your{" "}
+                <span className="underline-sweep accent">
+                  <span className="text-accent">complete</span>
+                </span>{" "}
+                project partner."
               </blockquote>
               <div className="mt-8 pt-6 border-t border-border grid grid-cols-3 gap-4 text-center">
                 <Stat label="Disciplines" value="3" suffix="-in-1" />
@@ -219,8 +237,19 @@ const PROBLEMS = [
 
 function Section2Problem() {
   return (
-    <section id="problem" className="relative py-32 bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="problem" className="relative py-32 bg-primary text-primary-foreground overflow-hidden">
+      <video
+        className="absolute inset-0 h-full w-full object-cover opacity-15 mix-blend-luminosity"
+        src="/media/mcprs.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/95 to-primary" />
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
           <div className="flex items-center gap-3 mb-6">
             <span className="font-mono text-xs text-brass">02 / Problem</span>
@@ -228,7 +257,9 @@ function Section2Problem() {
           </div>
           <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.02]">
             The transactional model is a risk you're absorbing —{" "}
-            <span className="text-brass">every single time.</span>
+            <span className="underline-sweep">
+              <span className="text-brass">every single time.</span>
+            </span>
           </h2>
           <p className="mt-8 text-lg text-primary-foreground/70 leading-relaxed">
             If you've worked with separate engineering, planning, and survey firms on the same
@@ -343,6 +374,8 @@ function Section4Proof() {
             headline="6-week delay, avoided."
             body="On a recent project, our team identified a boundary conflict in the first week — the kind of issue any other firm would have surfaced a month-and-a-half later."
             icon={ShieldCheck}
+            image="/media/farmview.jpg"
+            imageAlt="Aerial view of a Georgia development site"
           />
           <ProofCard
             tag="Ahead of schedule"
@@ -350,6 +383,8 @@ function Section4Proof() {
             body="When planners, engineers, and surveyors work as one team, approvals don't queue. They flow."
             icon={CheckCircle2}
             accent
+            image="/media/morganmedical.jpg"
+            imageAlt="Morgan Medical project site"
           />
         </div>
 
@@ -367,31 +402,48 @@ function ProofCard({
   body,
   icon: Icon,
   accent,
+  image,
+  imageAlt,
 }: {
   tag: string;
   headline: string;
   body: string;
   icon: typeof ShieldCheck;
   accent?: boolean;
+  image?: string;
+  imageAlt?: string;
 }) {
   return (
-    <div className="reveal hover-lift bg-card border border-border rounded-2xl p-8 shadow-soft">
-      <div className="flex items-start justify-between mb-6">
-        <span className="text-[10px] uppercase tracking-[0.22em] text-brass font-semibold">
-          {tag}
-        </span>
-        <div
-          className={`h-10 w-10 rounded-xl grid place-items-center ${
-            accent ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
-          }`}
-        >
-          <Icon className="h-5 w-5" />
+    <div className="reveal hover-lift bg-card border border-border rounded-2xl overflow-hidden shadow-soft flex flex-col">
+      {image && (
+        <div className="relative aspect-[16/10] overflow-hidden">
+          <img
+            src={image}
+            alt={imageAlt ?? ""}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] hover:scale-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
         </div>
+      )}
+      <div className="p-8 flex-1 flex flex-col">
+        <div className="flex items-start justify-between mb-6">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-brass font-semibold">
+            {tag}
+          </span>
+          <div
+            className={`h-10 w-10 rounded-xl grid place-items-center ${
+              accent ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
+            }`}
+          >
+            <Icon className="h-5 w-5" />
+          </div>
+        </div>
+        <h3 className="font-display font-bold text-2xl text-primary leading-tight mb-4">
+          {headline}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed">{body}</p>
       </div>
-      <h3 className="font-display font-bold text-2xl text-primary leading-tight mb-4">
-        {headline}
-      </h3>
-      <p className="text-muted-foreground leading-relaxed">{body}</p>
     </div>
   );
 }
@@ -404,16 +456,29 @@ function Section5Scale() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="reveal order-2 lg:order-1">
-            <div className="relative aspect-[5/4] rounded-2xl overflow-hidden bg-gradient-deep p-10 flex flex-col justify-between shadow-elegant">
-              <div className="flex items-center justify-between text-primary-foreground/60 text-xs font-mono">
-                <span>// regional depth × local knowledge</span>
-                <MapPin className="h-4 w-4" />
-              </div>
-              <div className="grid grid-cols-2 gap-6">
-                <ScaleStat label="Regional firm" value="Depth" sub="technical expertise" />
-                <ScaleStat label="Local firm" value="Speed" sub="actual market knowledge" />
-                <ScaleStat label="GCI" value="Both" sub="without the trade-offs" accent />
-                <ScaleStat label="Result" value="Above" sub="the rest" />
+            <div className="relative aspect-[5/4] rounded-2xl overflow-hidden shadow-elegant">
+              <video
+                className="absolute inset-0 h-full w-full object-cover"
+                src="/media/morganmedical.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/75 to-primary/95" />
+              <div className="relative h-full p-10 flex flex-col justify-between">
+                <div className="flex items-center justify-between text-primary-foreground/70 text-xs font-mono">
+                  <span>// regional depth × local knowledge</span>
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <ScaleStat label="Regional firm" value="Depth" sub="technical expertise" />
+                  <ScaleStat label="Local firm" value="Speed" sub="actual market knowledge" />
+                  <ScaleStat label="GCI" value="Both" sub="without the trade-offs" accent />
+                  <ScaleStat label="Result" value="Above" sub="the rest" />
+                </div>
               </div>
             </div>
           </div>
@@ -501,13 +566,20 @@ function Section6Pitch() {
             </div>
             <p className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-primary leading-[1.18]">
               Don't settle for transactional services. We put planners, surveyors, and civil
-              engineers on the <span className="text-accent">same team</span> from day one. GCI
+              engineers on the{" "}
+              <span className="underline-sweep accent">
+                <span className="text-accent">same team</span>
+              </span>{" "}
+              from day one. GCI
               saves you time, money, and the headache of carrying your development from firm to
               firm.
             </p>
             <div className="mt-10 pt-8 border-t border-border flex flex-wrap items-center justify-between gap-6">
               <p className="font-display font-extrabold text-2xl text-primary">
-                GCI: <span className="text-brass">your complete project partner.</span>
+                GCI:{" "}
+                <span className="underline-sweep">
+                  <span className="text-brass">your complete project partner.</span>
+                </span>
               </p>
               <div className="flex items-center gap-4">
                 <Pillet icon={Users} label="One team" />
