@@ -48,13 +48,17 @@ function PitchPage() {
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
+          const target = e.target as HTMLElement;
+          const replays = target.classList.contains("underline-sweep");
           if (e.isIntersecting) {
-            e.target.classList.add("in-view");
-            io.unobserve(e.target);
+            target.classList.add("in-view");
+          } else if (replays) {
+            // Replay underline sweep every time it re-enters the viewport
+            target.classList.remove("in-view");
           }
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.35 },
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
