@@ -86,6 +86,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Georgia Civil — Your Complete Project Partner" },
+      { name: "description", content: "Build a modern elevator pitch website with distinct sections and engaging visuals." },
+      { property: "og:description", content: "Build a modern elevator pitch website with distinct sections and engaging visuals." },
+      { name: "twitter:description", content: "Build a modern elevator pitch website with distinct sections and engaging visuals." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/afad880c-4343-4192-8e08-43a0e9a7b3ee/id-preview-5291b382--d789a53c-424e-4cad-8d33-0ec015d0b382.lovable.app-1780069163431.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/afad880c-4343-4192-8e08-43a0e9a7b3ee/id-preview-5291b382--d789a53c-424e-4cad-8d33-0ec015d0b382.lovable.app-1780069163431.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
