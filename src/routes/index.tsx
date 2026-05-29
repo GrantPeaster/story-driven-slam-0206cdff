@@ -457,6 +457,18 @@ function Section5Scale() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="reveal order-2 lg:order-1">
             <div className="relative aspect-[5/4] rounded-2xl overflow-hidden bg-gradient-deep p-10 flex flex-col justify-between shadow-elegant">
+              <video
+                className="absolute inset-0 h-full w-full object-cover opacity-25"
+                src="/media/morganmedical.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/70 to-primary/95" />
+              <div className="relative flex flex-col justify-between h-full"></div>
               <div className="flex items-center justify-between text-primary-foreground/60 text-xs font-mono">
                 <span>// regional depth × local knowledge</span>
                 <MapPin className="h-4 w-4" />
