@@ -617,12 +617,9 @@ function Footer() {
   return (
     <footer className="border-t border-border py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <div className="flex items-center gap-2.5">
-          <div className="h-7 w-7 rounded-md bg-primary text-primary-foreground grid place-items-center font-display font-bold text-xs">
-            gc
-          </div>
-          <span className="font-display font-semibold text-primary">georgia civil</span>
-          <span className="text-[10px] uppercase tracking-[0.18em] ml-2">Madison, GA</span>
+        <div className="flex items-center gap-3">
+          <img src={gciLogo} alt="Georgia Civil" className="h-7 w-auto" />
+          <span className="text-[10px] uppercase tracking-[0.18em]">Madison, GA</span>
         </div>
         <span className="text-xs">Civil Engineering · Landscape Architecture · Land Surveying</span>
       </div>
