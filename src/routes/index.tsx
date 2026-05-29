@@ -566,7 +566,11 @@ function Section6Pitch() {
             </div>
             <p className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-primary leading-[1.18]">
               Don't settle for transactional services. We put planners, surveyors, and civil
-              engineers on the <span className="text-accent">same team</span> from day one. GCI
+              engineers on the{" "}
+              <span className="underline-sweep accent">
+                <span className="text-accent">same team</span>
+              </span>{" "}
+              from day one. GCI
               saves you time, money, and the headache of carrying your development from firm to
               firm.
             </p>
