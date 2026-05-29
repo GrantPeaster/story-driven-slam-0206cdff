@@ -43,7 +43,7 @@ const SECTIONS = [
 
 function PitchPage() {
   useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-fade, .brass-rule");
+    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-fade, .brass-rule, .underline-sweep");
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
