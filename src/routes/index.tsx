@@ -48,13 +48,17 @@ function PitchPage() {
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
+          const target = e.target as HTMLElement;
+          const replays = target.classList.contains("underline-sweep");
           if (e.isIntersecting) {
-            e.target.classList.add("in-view");
-            io.unobserve(e.target);
+            target.classList.add("in-view");
+          } else if (replays) {
+            // Replay underline sweep every time it re-enters the viewport
+            target.classList.remove("in-view");
           }
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.35 },
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
@@ -86,11 +90,8 @@ function Nav() {
           <img
             src={gciLogo}
             alt="Georgia Civil — Civil Engineering, Landscape Architecture, Land Surveying"
-            className="h-9 w-auto"
+            className="h-10 sm:h-11 w-auto"
           />
-          <span className="hidden sm:inline-block text-[9px] uppercase tracking-[0.18em] text-muted-foreground border-l border-border pl-3">
-            The Elevator Pitch
-          </span>
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm">
           {SECTIONS.map((s, i) => (
@@ -618,7 +619,7 @@ function Footer() {
     <footer className="border-t border-border py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
         <div className="flex items-center gap-3">
-          <img src={gciLogo} alt="Georgia Civil" className="h-7 w-auto" />
+          <img src={gciLogo} alt="Georgia Civil" className="h-9 w-auto" />
           <span className="text-[10px] uppercase tracking-[0.18em]">Madison, GA</span>
         </div>
         <span className="text-xs">Civil Engineering · Landscape Architecture · Land Surveying</span>
