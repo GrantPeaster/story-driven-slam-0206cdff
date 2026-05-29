@@ -125,7 +125,22 @@ function Section1Open() {
       id="open"
       className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden bg-gradient-hero"
     >
-      <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center w-full">
+      {/* Background hero video */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover opacity-30"
+        src="/media/farmview.mp4"
+        poster="/media/farmview.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-background/90" />
+      <div className="absolute inset-0 bg-gradient-hero opacity-80" />
+
+      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center w-full">
         <div className="lg:col-span-7 reveal">
           <div className="flex items-center gap-3 mb-8">
             <div className="brass-rule" />
@@ -135,13 +150,12 @@ function Section1Open() {
           </div>
           <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[0.98] text-primary">
             Don't settle for{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10">transactional</span>
-              <span className="absolute inset-x-0 bottom-2 h-3 bg-brass/40 -z-0" />
+            <span className="underline-sweep">
+              <span>transactional</span>
             </span>{" "}
             services.
           </h1>
-          <p className="mt-8 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+          <p className="mt-8 text-lg sm:text-xl text-foreground/75 max-w-2xl leading-relaxed">
             One team of planners, surveyors, and civil engineers — working the same project from
             day one. No handoffs. No data gaps. No surprises.
           </p>
@@ -159,12 +173,16 @@ function Section1Open() {
         <div className="lg:col-span-5 reveal-fade">
           <div className="relative">
             <div className="absolute -inset-6 bg-gradient-brass opacity-20 blur-3xl rounded-full" />
-            <div className="relative bg-card border border-border rounded-2xl p-8 shadow-elegant float-slow">
+            <div className="relative bg-card/95 backdrop-blur border border-border rounded-2xl p-8 shadow-elegant float-slow">
               <div className="text-[11px] uppercase tracking-[0.22em] text-brass font-semibold mb-6">
                 The Promise
               </div>
               <blockquote className="font-display text-2xl sm:text-3xl text-primary leading-snug">
-                "GCI: your <span className="text-accent">complete</span> project partner."
+                "GCI: your{" "}
+                <span className="underline-sweep accent">
+                  <span className="text-accent">complete</span>
+                </span>{" "}
+                project partner."
               </blockquote>
               <div className="mt-8 pt-6 border-t border-border grid grid-cols-3 gap-4 text-center">
                 <Stat label="Disciplines" value="3" suffix="-in-1" />
