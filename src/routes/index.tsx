@@ -576,7 +576,10 @@ function Section6Pitch() {
             </p>
             <div className="mt-10 pt-8 border-t border-border flex flex-wrap items-center justify-between gap-6">
               <p className="font-display font-extrabold text-2xl text-primary">
-                GCI: <span className="text-brass">your complete project partner.</span>
+                GCI:{" "}
+                <span className="underline-sweep">
+                  <span className="text-brass">your complete project partner.</span>
+                </span>
               </p>
               <div className="flex items-center gap-4">
                 <Pillet icon={Users} label="One team" />
