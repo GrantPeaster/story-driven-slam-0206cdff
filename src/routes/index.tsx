@@ -374,6 +374,8 @@ function Section4Proof() {
             headline="6-week delay, avoided."
             body="On a recent project, our team identified a boundary conflict in the first week — the kind of issue any other firm would have surfaced a month-and-a-half later."
             icon={ShieldCheck}
+            image="/media/farmview.jpg"
+            imageAlt="Aerial view of a Georgia development site"
           />
           <ProofCard
             tag="Ahead of schedule"
@@ -381,6 +383,8 @@ function Section4Proof() {
             body="When planners, engineers, and surveyors work as one team, approvals don't queue. They flow."
             icon={CheckCircle2}
             accent
+            image="/media/morganmedical.jpg"
+            imageAlt="Morgan Medical project site"
           />
         </div>
 
@@ -398,31 +402,48 @@ function ProofCard({
   body,
   icon: Icon,
   accent,
+  image,
+  imageAlt,
 }: {
   tag: string;
   headline: string;
   body: string;
   icon: typeof ShieldCheck;
   accent?: boolean;
+  image?: string;
+  imageAlt?: string;
 }) {
   return (
-    <div className="reveal hover-lift bg-card border border-border rounded-2xl p-8 shadow-soft">
-      <div className="flex items-start justify-between mb-6">
-        <span className="text-[10px] uppercase tracking-[0.22em] text-brass font-semibold">
-          {tag}
-        </span>
-        <div
-          className={`h-10 w-10 rounded-xl grid place-items-center ${
-            accent ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
-          }`}
-        >
-          <Icon className="h-5 w-5" />
+    <div className="reveal hover-lift bg-card border border-border rounded-2xl overflow-hidden shadow-soft flex flex-col">
+      {image && (
+        <div className="relative aspect-[16/10] overflow-hidden">
+          <img
+            src={image}
+            alt={imageAlt ?? ""}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] hover:scale-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
         </div>
+      )}
+      <div className="p-8 flex-1 flex flex-col">
+        <div className="flex items-start justify-between mb-6">
+          <span className="text-[10px] uppercase tracking-[0.22em] text-brass font-semibold">
+            {tag}
+          </span>
+          <div
+            className={`h-10 w-10 rounded-xl grid place-items-center ${
+              accent ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
+            }`}
+          >
+            <Icon className="h-5 w-5" />
+          </div>
+        </div>
+        <h3 className="font-display font-bold text-2xl text-primary leading-tight mb-4">
+          {headline}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed">{body}</p>
       </div>
-      <h3 className="font-display font-bold text-2xl text-primary leading-tight mb-4">
-        {headline}
-      </h3>
-      <p className="text-muted-foreground leading-relaxed">{body}</p>
     </div>
   );
 }
