@@ -90,7 +90,7 @@ function Nav() {
           <img
             src={gciLogo}
             alt="Georgia Civil — Civil Engineering, Landscape Architecture, Land Surveying"
-            className="h-10 sm:h-11 w-auto"
+            className="h-7 sm:h-8 w-auto"
           />
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm">
