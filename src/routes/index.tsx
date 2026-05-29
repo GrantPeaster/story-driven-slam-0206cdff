@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
+import gciLogo from "@/assets/gci-logo.png";
 import {
   ArrowRight,
   Workflow,
@@ -81,16 +82,15 @@ function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
-        <a href="#open" className="flex items-center gap-2.5 group">
-          <div className="h-8 w-8 rounded-md bg-primary text-primary-foreground grid place-items-center font-display font-bold text-sm tracking-tight">
-            gc
-          </div>
-          <div className="leading-tight">
-            <div className="font-display font-bold text-[15px] text-primary">georgia civil</div>
-            <div className="text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
-              The Elevator Pitch
-            </div>
-          </div>
+        <a href="#open" className="flex items-center gap-3 group">
+          <img
+            src={gciLogo}
+            alt="Georgia Civil — Civil Engineering, Landscape Architecture, Land Surveying"
+            className="h-9 w-auto"
+          />
+          <span className="hidden sm:inline-block text-[9px] uppercase tracking-[0.18em] text-muted-foreground border-l border-border pl-3">
+            The Elevator Pitch
+          </span>
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm">
           {SECTIONS.map((s, i) => (
@@ -617,12 +617,9 @@ function Footer() {
   return (
     <footer className="border-t border-border py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <div className="flex items-center gap-2.5">
-          <div className="h-7 w-7 rounded-md bg-primary text-primary-foreground grid place-items-center font-display font-bold text-xs">
-            gc
-          </div>
-          <span className="font-display font-semibold text-primary">georgia civil</span>
-          <span className="text-[10px] uppercase tracking-[0.18em] ml-2">Madison, GA</span>
+        <div className="flex items-center gap-3">
+          <img src={gciLogo} alt="Georgia Civil" className="h-7 w-auto" />
+          <span className="text-[10px] uppercase tracking-[0.18em]">Madison, GA</span>
         </div>
         <span className="text-xs">Civil Engineering · Landscape Architecture · Land Surveying</span>
       </div>
