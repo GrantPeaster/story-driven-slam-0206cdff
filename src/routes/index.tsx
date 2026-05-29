@@ -90,7 +90,7 @@ function Nav() {
           <img
             src={gciLogo}
             alt="Georgia Civil — Civil Engineering, Landscape Architecture, Land Surveying"
-            className="h-10 sm:h-11 w-auto"
+            className="h-7 sm:h-8 w-auto"
           />
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm">
@@ -619,7 +619,7 @@ function Footer() {
     <footer className="border-t border-border py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
         <div className="flex items-center gap-3">
-          <img src={gciLogo} alt="Georgia Civil" className="h-9 w-auto" />
+          <img src={gciLogo} alt="Georgia Civil" className="h-7 w-auto" />
           <span className="text-[10px] uppercase tracking-[0.18em]">Madison, GA</span>
         </div>
         <span className="text-xs">Civil Engineering · Landscape Architecture · Land Surveying</span>
