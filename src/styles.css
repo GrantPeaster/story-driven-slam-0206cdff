@@ -125,6 +125,12 @@
 
 @layer utilities {
   .font-display { font-family: var(--font-display); }
+  .font-nav {
+    font-family: var(--font-nav);
+    text-transform: uppercase;
+    letter-spacing: 0.139em;
+    font-weight: 500;
+  }
   .text-brass { color: var(--brass); }
   .bg-brass { background-color: var(--brass); }
   .bg-gradient-hero { background-image: var(--gradient-hero); }
