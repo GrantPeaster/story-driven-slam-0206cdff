@@ -94,14 +94,14 @@ function Nav() {
             className="h-9 sm:h-10 w-auto"
           />
         </a>
-        <nav className="hidden md:flex items-center gap-7 text-sm">
+        <nav className="hidden md:flex items-center gap-7 text-xs">
           {SECTIONS.map((s, i) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="text-muted-foreground hover:text-primary transition-colors relative"
+              className="font-nav text-muted-foreground hover:text-primary transition-colors relative"
             >
-              <span className="text-brass font-mono text-[11px] mr-2">
+              <span className="text-brass font-mono text-[11px] mr-2 tracking-normal normal-case">
                 {String(i + 1).padStart(2, "0")}
               </span>
               {s.label}
