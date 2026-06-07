@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import gciLogo from "@/assets/gci-logo.png";
+import gciLogo from "@/assets/gci-secondary-logo.png";
+import gciGeorgiaMark from "@/assets/gci-georgia-mark.png";
 import {
   ArrowRight,
   Workflow,
