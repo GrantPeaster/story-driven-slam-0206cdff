@@ -176,8 +176,16 @@ function Section1Open() {
           <div className="relative">
             <div className="absolute -inset-6 bg-gradient-brass opacity-20 blur-3xl rounded-full" />
             <div className="relative bg-card/95 backdrop-blur border border-border rounded-2xl p-8 shadow-elegant float-slow">
-              <div className="text-[11px] uppercase tracking-[0.22em] text-brass font-semibold mb-6">
-                The Promise
+              <div className="flex items-start justify-between gap-6 mb-6">
+                <div className="text-[11px] uppercase tracking-[0.22em] text-brass font-semibold">
+                  The Promise
+                </div>
+                <img
+                  src={gciGeorgiaMark}
+                  alt="Georgia Civil — Georgia mark"
+                  className="h-16 w-auto -mt-2 -mr-2 select-none"
+                  loading="eager"
+                />
               </div>
               <blockquote className="font-display text-2xl sm:text-3xl text-primary leading-snug">
                 "GCI: your{" "}
