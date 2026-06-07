@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import gciLogo from "@/assets/gci-logo.png";
+import gciLogo from "@/assets/gci-secondary-logo.png";
+import gciGeorgiaMark from "@/assets/gci-georgia-mark.png";
 import {
   ArrowRight,
   Workflow,
@@ -89,18 +90,18 @@ function Nav() {
         <a href="#open" className="flex items-center gap-3 group">
           <img
             src={gciLogo}
-            alt="Georgia Civil — Civil Engineering, Landscape Architecture, Land Surveying"
-            className="h-7 sm:h-8 w-auto"
+            alt="Georgia Civil"
+            className="h-9 sm:h-10 w-auto"
           />
         </a>
-        <nav className="hidden md:flex items-center gap-7 text-sm">
+        <nav className="hidden md:flex items-center gap-7 text-xs">
           {SECTIONS.map((s, i) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="text-muted-foreground hover:text-primary transition-colors relative"
+              className="font-nav text-muted-foreground hover:text-primary transition-colors relative"
             >
-              <span className="text-brass font-mono text-[11px] mr-2">
+              <span className="text-brass font-mono text-[11px] mr-2 tracking-normal normal-case">
                 {String(i + 1).padStart(2, "0")}
               </span>
               {s.label}
@@ -175,8 +176,16 @@ function Section1Open() {
           <div className="relative">
             <div className="absolute -inset-6 bg-gradient-brass opacity-20 blur-3xl rounded-full" />
             <div className="relative bg-card/95 backdrop-blur border border-border rounded-2xl p-8 shadow-elegant float-slow">
-              <div className="text-[11px] uppercase tracking-[0.22em] text-brass font-semibold mb-6">
-                The Promise
+              <div className="flex items-start justify-between gap-6 mb-6">
+                <div className="text-[11px] uppercase tracking-[0.22em] text-brass font-semibold">
+                  The Promise
+                </div>
+                <img
+                  src={gciGeorgiaMark}
+                  alt="Georgia Civil — Georgia mark"
+                  className="h-16 w-auto -mt-2 -mr-2 select-none"
+                  loading="eager"
+                />
               </div>
               <blockquote className="font-display text-2xl sm:text-3xl text-primary leading-snug">
                 "GCI: your{" "}
@@ -618,11 +627,13 @@ function Footer() {
   return (
     <footer className="border-t border-border py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <div className="flex items-center gap-3">
-          <img src={gciLogo} alt="Georgia Civil" className="h-7 w-auto" />
-          <span className="text-[10px] uppercase tracking-[0.18em]">Madison, GA</span>
+        <div className="flex items-center gap-4">
+          <img src={gciLogo} alt="Georgia Civil" className="h-9 w-auto" />
+          <span className="h-8 w-px bg-border" aria-hidden="true" />
+          <img src={gciGeorgiaMark} alt="" className="h-9 w-auto" aria-hidden="true" />
+          <span className="font-nav text-[10px]">Madison, GA</span>
         </div>
-        <span className="text-xs">Civil Engineering · Landscape Architecture · Land Surveying</span>
+        <span className="font-nav text-[10px]">Civil Engineering · Landscape Architecture · Land Surveying</span>
       </div>
     </footer>
   );
