@@ -627,11 +627,13 @@ function Footer() {
   return (
     <footer className="border-t border-border py-10 bg-background">
       <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <div className="flex items-center gap-3">
-          <img src={gciLogo} alt="Georgia Civil" className="h-7 w-auto" />
-          <span className="text-[10px] uppercase tracking-[0.18em]">Madison, GA</span>
+        <div className="flex items-center gap-4">
+          <img src={gciLogo} alt="Georgia Civil" className="h-9 w-auto" />
+          <span className="h-8 w-px bg-border" aria-hidden="true" />
+          <img src={gciGeorgiaMark} alt="" className="h-9 w-auto" aria-hidden="true" />
+          <span className="font-nav text-[10px]">Madison, GA</span>
         </div>
-        <span className="text-xs">Civil Engineering · Landscape Architecture · Land Surveying</span>
+        <span className="font-nav text-[10px]">Civil Engineering · Landscape Architecture · Land Surveying</span>
       </div>
     </footer>
   );
