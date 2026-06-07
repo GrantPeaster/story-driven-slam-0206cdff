@@ -49,37 +49,38 @@
 :root {
   --radius: 0.875rem;
 
-  /* GCI Brand-Aligned Palette */
-  --background: oklch(0.965 0.012 80);          /* Off-white #F2ECE0 */
-  --foreground: oklch(0.18 0.08 265);            /* Dark blue #0A1A4A */
+  /* GCI BrandIDGCIFinalDraft palette (exact hex values):
+     Dark Blue #020534 · Georgia Red #CA2131 · Warm Brass #B18750 · Gray #787878 */
+  --background: oklch(1 0 0);                    /* White #FFFFFF (brand backgrounds) */
+  --foreground: oklch(0.155 0.085 270);          /* Dark Blue #020534 */
 
-  --card: oklch(0.985 0.006 80);
-  --card-foreground: oklch(0.18 0.08 265);
+  --card: oklch(0.985 0 0);
+  --card-foreground: oklch(0.155 0.085 270);
 
-  --popover: oklch(0.985 0.006 80);
-  --popover-foreground: oklch(0.18 0.08 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.155 0.085 270);
 
-  --primary: oklch(0.18 0.08 265);               /* Dark blue */
-  --primary-foreground: oklch(0.97 0.012 80);
+  --primary: oklch(0.155 0.085 270);             /* Dark Blue #020534 — primary corporate */
+  --primary-foreground: oklch(1 0 0);
 
-  --secondary: oklch(0.92 0.012 80);             /* warm off-white card */
-  --secondary-foreground: oklch(0.18 0.08 265);
+  --secondary: oklch(0.965 0.003 270);           /* light surface */
+  --secondary-foreground: oklch(0.155 0.085 270);
 
-  --muted: oklch(0.92 0.012 80);
-  --muted-foreground: oklch(0.45 0.012 260);     /* Gray */
+  --muted: oklch(0.965 0.003 270);
+  --muted-foreground: oklch(0.55 0 0);           /* Gray #787878 */
 
-  --accent: oklch(0.55 0.20 25);                 /* Vivid red #C8102E */
-  --accent-foreground: oklch(0.97 0.012 80);
+  --accent: oklch(0.55 0.205 27);                /* Georgia Red #CA2131 */
+  --accent-foreground: oklch(1 0 0);
 
-  --brass: oklch(0.66 0.10 75);                  /* Warm brass #B08A4A */
-  --brass-foreground: oklch(0.18 0.08 265);
+  --brass: oklch(0.66 0.097 70);                 /* Warm Brass #B18750 */
+  --brass-foreground: oklch(0.155 0.085 270);
 
-  --destructive: oklch(0.55 0.20 25);
-  --destructive-foreground: oklch(0.97 0.012 80);
+  --destructive: oklch(0.55 0.205 27);           /* Error = Georgia Red */
+  --destructive-foreground: oklch(1 0 0);
 
-  --border: oklch(0.88 0.012 80);
-  --input: oklch(0.88 0.012 80);
-  --ring: oklch(0.66 0.10 75);
+  --border: oklch(0.9 0.003 270);
+  --input: oklch(0.9 0.003 270);
+  --ring: oklch(0.66 0.097 70);                  /* Brass focus ring */
 
   --gradient-hero: radial-gradient(
       1200px 600px at 80% -10%,
