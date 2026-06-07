@@ -90,8 +90,8 @@ function Nav() {
         <a href="#open" className="flex items-center gap-3 group">
           <img
             src={gciLogo}
-            alt="Georgia Civil — Civil Engineering, Landscape Architecture, Land Surveying"
-            className="h-7 sm:h-8 w-auto"
+            alt="Georgia Civil"
+            className="h-9 sm:h-10 w-auto"
           />
         </a>
         <nav className="hidden md:flex items-center gap-7 text-sm">
