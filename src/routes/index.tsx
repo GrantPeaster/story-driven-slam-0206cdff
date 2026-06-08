@@ -70,7 +70,6 @@ function PitchPage() {
         <Section1Open />
         <Section2Problem />
         <Section3Difference />
-        <Section4Proof />
         <Section5Scale />
         <Section6Pitch />
       </main>
