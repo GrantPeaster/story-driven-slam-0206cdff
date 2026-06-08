@@ -37,7 +37,6 @@ const SECTIONS = [
   { id: "open", label: "Open" },
   { id: "problem", label: "Problem" },
   { id: "difference", label: "Difference" },
-  { id: "proof", label: "Proof" },
   { id: "scale", label: "Scale" },
   { id: "pitch", label: "Pitch" },
 ] as const;
