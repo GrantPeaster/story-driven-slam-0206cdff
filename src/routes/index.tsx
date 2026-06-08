@@ -467,7 +467,7 @@ function Section6Pitch() {
     <section id="pitch" className="relative py-32 overflow-hidden bg-gradient-hero">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <div className="reveal">
-          <span className="font-mono text-xs text-brass">06 / The Pitch</span>
+          <span className="font-mono text-xs text-brass">05 / The Pitch</span>
           <h2 className="mt-4 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.02]">
             So — what do I tell prospective clients?
           </h2>
