@@ -398,7 +398,7 @@ function Section5Scale() {
           </div>
 
           <div className="reveal order-1 lg:order-2">
-            <span className="font-mono text-xs text-brass">05 / Scale</span>
+            <span className="font-mono text-xs text-brass">04 / Scale</span>
             <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary leading-[1.05]">
               We're not the largest firm. That's the point.
             </h2>
