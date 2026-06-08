@@ -7,7 +7,6 @@ import {
   Workflow,
   Users,
   Clock,
-  ShieldCheck,
   CheckCircle2,
   AlertTriangle,
   Layers,
@@ -38,7 +37,6 @@ const SECTIONS = [
   { id: "open", label: "Open" },
   { id: "problem", label: "Problem" },
   { id: "difference", label: "Difference" },
-  { id: "proof", label: "Proof" },
   { id: "scale", label: "Scale" },
   { id: "pitch", label: "Pitch" },
 ] as const;
@@ -72,7 +70,6 @@ function PitchPage() {
         <Section1Open />
         <Section2Problem />
         <Section3Difference />
-        <Section4Proof />
         <Section5Scale />
         <Section6Pitch />
       </main>
@@ -364,99 +361,6 @@ function Section3Difference() {
   );
 }
 
-/* ---------------- 4. Proof ---------------- */
-
-function Section4Proof() {
-  return (
-    <section id="proof" className="relative py-32 bg-secondary">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-3xl mx-auto reveal">
-          <span className="font-mono text-xs text-brass">04 / Proof</span>
-          <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary">
-            That's not luck. That's integration.
-          </h2>
-          <div className="brass-rule mx-auto mt-6" />
-        </div>
-
-        <div className="mt-16 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          <ProofCard
-            tag="Week 1 catch"
-            headline="6-week delay, avoided."
-            body="On a recent project, our team identified a boundary conflict in the first week — the kind of issue any other firm would have surfaced a month-and-a-half later."
-            icon={ShieldCheck}
-            image="/media/farmview.jpg"
-            imageAlt="Aerial view of a Georgia development site"
-          />
-          <ProofCard
-            tag="Ahead of schedule"
-            headline="Final plat — 3 weeks early."
-            body="When planners, engineers, and surveyors work as one team, approvals don't queue. They flow."
-            icon={CheckCircle2}
-            accent
-            image="/media/morganmedical.jpg"
-            imageAlt="Morgan Medical project site"
-          />
-        </div>
-
-        <p className="mt-14 text-center reveal text-muted-foreground max-w-2xl mx-auto">
-          That's what happens when your entire team is in the room from the start.
-        </p>
-      </div>
-    </section>
-  );
-}
-
-function ProofCard({
-  tag,
-  headline,
-  body,
-  icon: Icon,
-  accent,
-  image,
-  imageAlt,
-}: {
-  tag: string;
-  headline: string;
-  body: string;
-  icon: typeof ShieldCheck;
-  accent?: boolean;
-  image?: string;
-  imageAlt?: string;
-}) {
-  return (
-    <div className="reveal hover-lift bg-card border border-border rounded-2xl overflow-hidden shadow-soft flex flex-col">
-      {image && (
-        <div className="relative aspect-[16/10] overflow-hidden">
-          <img
-            src={image}
-            alt={imageAlt ?? ""}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] hover:scale-105"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
-        </div>
-      )}
-      <div className="p-8 flex-1 flex flex-col">
-        <div className="flex items-start justify-between mb-6">
-          <span className="text-[10px] uppercase tracking-[0.22em] text-brass font-semibold">
-            {tag}
-          </span>
-          <div
-            className={`h-10 w-10 rounded-xl grid place-items-center ${
-              accent ? "bg-accent text-accent-foreground" : "bg-primary text-primary-foreground"
-            }`}
-          >
-            <Icon className="h-5 w-5" />
-          </div>
-        </div>
-        <h3 className="font-display font-bold text-2xl text-primary leading-tight mb-4">
-          {headline}
-        </h3>
-        <p className="text-muted-foreground leading-relaxed">{body}</p>
-      </div>
-    </div>
-  );
-}
 
 /* ---------------- 5. Scale ---------------- */
 
@@ -494,7 +398,7 @@ function Section5Scale() {
           </div>
 
           <div className="reveal order-1 lg:order-2">
-            <span className="font-mono text-xs text-brass">05 / Scale</span>
+            <span className="font-mono text-xs text-brass">04 / Scale</span>
             <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary leading-[1.05]">
               We're not the largest firm. That's the point.
             </h2>
@@ -563,7 +467,7 @@ function Section6Pitch() {
     <section id="pitch" className="relative py-32 overflow-hidden bg-gradient-hero">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <div className="reveal">
-          <span className="font-mono text-xs text-brass">06 / The Pitch</span>
+          <span className="font-mono text-xs text-brass">05 / The Pitch</span>
           <h2 className="mt-4 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.02]">
             So — what do I tell prospective clients?
           </h2>
