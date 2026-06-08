@@ -7,7 +7,6 @@ import {
   Workflow,
   Users,
   Clock,
-  ShieldCheck,
   CheckCircle2,
   AlertTriangle,
   Layers,
