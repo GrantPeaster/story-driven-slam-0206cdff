@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ScaleRouteImport } from './routes/scale'
+import { Route as ProblemRouteImport } from './routes/problem'
+import { Route as PitchRouteImport } from './routes/pitch'
+import { Route as DifferenceRouteImport } from './routes/difference'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ScaleRoute = ScaleRouteImport.update({
+  id: '/scale',
+  path: '/scale',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProblemRoute = ProblemRouteImport.update({
+  id: '/problem',
+  path: '/problem',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PitchRoute = PitchRouteImport.update({
+  id: '/pitch',
+  path: '/pitch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DifferenceRoute = DifferenceRouteImport.update({
+  id: '/difference',
+  path: '/difference',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,72 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/difference': typeof DifferenceRoute
+  '/pitch': typeof PitchRoute
+  '/problem': typeof ProblemRoute
+  '/scale': typeof ScaleRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/difference': typeof DifferenceRoute
+  '/pitch': typeof PitchRoute
+  '/problem': typeof ProblemRoute
+  '/scale': typeof ScaleRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/difference': typeof DifferenceRoute
+  '/pitch': typeof PitchRoute
+  '/problem': typeof ProblemRoute
+  '/scale': typeof ScaleRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/difference' | '/pitch' | '/problem' | '/scale'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/difference' | '/pitch' | '/problem' | '/scale'
+  id: '__root__' | '/' | '/difference' | '/pitch' | '/problem' | '/scale'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DifferenceRoute: typeof DifferenceRoute
+  PitchRoute: typeof PitchRoute
+  ProblemRoute: typeof ProblemRoute
+  ScaleRoute: typeof ScaleRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/scale': {
+      id: '/scale'
+      path: '/scale'
+      fullPath: '/scale'
+      preLoaderRoute: typeof ScaleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/problem': {
+      id: '/problem'
+      path: '/problem'
+      fullPath: '/problem'
+      preLoaderRoute: typeof ProblemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pitch': {
+      id: '/pitch'
+      path: '/pitch'
+      fullPath: '/pitch'
+      preLoaderRoute: typeof PitchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/difference': {
+      id: '/difference'
+      path: '/difference'
+      fullPath: '/difference'
+      preLoaderRoute: typeof DifferenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +121,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DifferenceRoute: DifferenceRoute,
+  PitchRoute: PitchRoute,
+  ProblemRoute: ProblemRoute,
+  ScaleRoute: ScaleRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
