@@ -69,15 +69,6 @@ export function Nav() {
           ))}
         </nav>
         <div className="flex items-center gap-5">
-          <address className="not-italic font-nav text-[9px] sm:text-[10px] text-muted-foreground leading-[1.7] text-right">
-            <a href="tel:+17063425557" className="block hover:text-primary transition-colors">
-              706 · 342 · 5557
-            </a>
-            <a href="mailto:info@georgiacivil.com" className="block hover:text-primary transition-colors">
-              info@georgiacivil.com
-            </a>
-            <span className="block">130 N Main St · Madison, GA</span>
-          </address>
           <Link
             to="/pitch"
             className="hidden md:inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
