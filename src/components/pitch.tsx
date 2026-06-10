@@ -155,15 +155,23 @@ export function Section1Open() {
             </span>
           </div>
           <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[0.98] text-primary">
-            Don't settle for{" "}
+            Growing.{" "}
             <span className="underline-sweep">
-              <span>transactional</span>
+              <span>Creating.</span>
             </span>{" "}
-            services.
+            Innovating.
           </h1>
+          <p className="mt-6 text-base sm:text-lg text-brass font-mono tracking-[0.18em] uppercase">
+            G · C · I
+          </p>
           <p className="mt-8 text-lg sm:text-xl text-foreground/75 max-w-2xl leading-relaxed">
-            One team of planners, surveyors, and civil engineers — working the same project from
-            day one. No handoffs. No data gaps. No surprises.
+            Every project we touch, we're growing the landscape of our region, creating the
+            drawings and plans that make development possible, and innovating with technology
+            most firms our size simply don't have access to.
+          </p>
+          <p className="mt-4 text-lg text-primary font-medium max-w-2xl leading-relaxed">
+            Surveyors, civil engineers, and land planners on your team — so you never settle
+            for the delays or inflated costs of transactional services.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
@@ -431,7 +439,7 @@ export function Section5Scale() {
             <div className="brass-rule mt-6" />
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
               Our abilities get questioned because of our size. You're right — we're not a large
-              regional firm. That's another reason why GCI is above the rest.
+              regional firm. That's just another reason GCI is above the rest.
             </p>
             <ul className="mt-8 space-y-4">
               {[
@@ -445,6 +453,12 @@ export function Section5Scale() {
                 </li>
               ))}
             </ul>
+            <p className="mt-8 text-base text-muted-foreground leading-relaxed border-l-2 border-brass/60 pl-4 italic">
+              Right now, a lot of firms are living on the edge — absorbing the delays, cost
+              inflation, and communication gaps of a fragmented team. GCI puts you on the
+              cutting edge instead: integrated systems, measurable savings, and principals with
+              you through every phase of development.
+            </p>
           </div>
         </div>
 
