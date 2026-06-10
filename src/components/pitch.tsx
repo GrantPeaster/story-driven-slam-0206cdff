@@ -155,15 +155,23 @@ export function Section1Open() {
             </span>
           </div>
           <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[0.98] text-primary">
-            Don't settle for{" "}
+            Growing.{" "}
             <span className="underline-sweep">
-              <span>transactional</span>
+              <span>Creating.</span>
             </span>{" "}
-            services.
+            Innovating.
           </h1>
+          <p className="mt-6 text-base sm:text-lg text-brass font-mono tracking-[0.18em] uppercase">
+            G · C · I
+          </p>
           <p className="mt-8 text-lg sm:text-xl text-foreground/75 max-w-2xl leading-relaxed">
-            One team of planners, surveyors, and civil engineers — working the same project from
-            day one. No handoffs. No data gaps. No surprises.
+            Every project we touch, we're growing the landscape of our region, creating the
+            drawings and plans that make development possible, and innovating with technology
+            most firms our size simply don't have access to.
+          </p>
+          <p className="mt-4 text-lg text-primary font-medium max-w-2xl leading-relaxed">
+            Surveyors, civil engineers, and land planners on your team — so you never settle
+            for the delays or inflated costs of transactional services.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
