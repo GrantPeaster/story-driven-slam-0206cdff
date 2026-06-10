@@ -439,7 +439,7 @@ export function Section5Scale() {
             <div className="brass-rule mt-6" />
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
               Our abilities get questioned because of our size. You're right — we're not a large
-              regional firm. That's another reason why GCI is above the rest.
+              regional firm. That's just another reason GCI is above the rest.
             </p>
             <ul className="mt-8 space-y-4">
               {[
@@ -453,6 +453,12 @@ export function Section5Scale() {
                 </li>
               ))}
             </ul>
+            <p className="mt-8 text-base text-muted-foreground leading-relaxed border-l-2 border-brass/60 pl-4 italic">
+              Right now, a lot of firms are living on the edge — absorbing the delays, cost
+              inflation, and communication gaps of a fragmented team. GCI puts you on the
+              cutting edge instead: integrated systems, measurable savings, and principals with
+              you through every phase of development.
+            </p>
           </div>
         </div>
 
