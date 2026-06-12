@@ -482,6 +482,9 @@ export function Section6Pitch() {
           <h2 className="mt-4 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.02]">
             So — what do I tell prospective clients?
           </h2>
+          <p className="mt-6 italic text-brass text-lg sm:text-xl">
+            Where feasibility, optimization, and engineering work as one.
+          </p>
         </div>
 
         <div className="mt-14 reveal">
@@ -490,24 +493,29 @@ export function Section6Pitch() {
               Presentable Pitch
             </div>
             <p className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-primary leading-[1.18]">
-              Don't settle for transactional services. We put planners, surveyors, and civil
-              engineers on the{" "}
+              At GCI, we bring land planning, surveying, civil engineering, and landscape
+              architecture together from{" "}
               <span className="underline-sweep accent">
-                <span className="text-accent">same team</span>
+                <span className="text-accent">day one</span>
               </span>{" "}
-              from day one. GCI saves you time, money, and the headache of carrying your
-              development from firm to firm.
+              — to help clients make smarter decisions before costly commitments are made.
+            </p>
+            <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed">
+              By combining feasibility, optimization, and engineering into one integrated
+              process, we reduce risk, maximize site potential, and help projects move from
+              vision to reality with confidence.
             </p>
             <div className="mt-10 pt-8 border-t border-border flex flex-wrap items-center justify-between gap-6">
               <p className="font-display font-extrabold text-2xl text-primary">
-                GCI:{" "}
+                Built on{" "}
                 <span className="underline-sweep">
-                  <span className="text-brass">your complete project partner.</span>
+                  <span className="text-brass">better planning.</span>
                 </span>
               </p>
-              <div className="flex items-center gap-4">
-                <Pillet icon={Users} label="One team" />
-                <Pillet icon={Workflow} label="One process" />
+              <div className="flex items-center gap-3 flex-wrap">
+                <Pillet icon={Compass} label="Feasibility" />
+                <Pillet icon={Workflow} label="Optimization" />
+                <Pillet icon={Ruler} label="Engineering" />
               </div>
             </div>
           </div>
@@ -522,7 +530,7 @@ export function Section6Pitch() {
           </Link>
         </div>
 
-        <SectionNav prev={{ to: "/scale", label: "Scale" }} />
+        <SectionNav prev={{ to: "/scale", label: "Proof" }} />
       </div>
     </section>
   );
