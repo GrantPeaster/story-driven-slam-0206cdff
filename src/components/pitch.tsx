@@ -222,19 +222,19 @@ export function Section1Open() {
 
 const PROBLEMS = [
   {
+    icon: AlertTriangle,
+    title: "Brought in too late",
+    body: "Many firms get involved after critical decisions are already locked in — when grading, drainage, and utility realities can no longer reshape the plan.",
+  },
+  {
     icon: Layers,
-    title: "Data doesn't match",
-    body: "Survey, planning, and engineering files drift apart the moment they live in three firms.",
+    title: "Concepts that look good on paper",
+    body: "Plans drawn without engineering input ignore constructability, environmental impacts, and long-term functionality — and become costly to change.",
   },
   {
     icon: Clock,
-    title: "Schedules slip",
-    body: "Every handoff is a waiting line. Deadlines absorb every gap between disciplines.",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Flaws caught late",
-    body: "By the time someone spots a design conflict, you're already behind and over budget.",
+    title: "Costly delays, late surprises",
+    body: "Constraints discovered mid-design force redesigns, budget overruns, and missed schedules — risks owners end up absorbing.",
   },
 ];
 
@@ -255,18 +255,24 @@ export function Section2Problem() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
           <div className="flex items-center gap-3 mb-6">
-            <span className="font-mono text-xs text-brass">02 / Problem</span>
+            <span className="font-mono text-xs text-brass">02 / Approach</span>
             <div className="h-px flex-1 bg-primary-foreground/15" />
           </div>
           <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.02]">
-            The transactional model is a risk you're absorbing —{" "}
+            Our approach begins{" "}
             <span className="underline-sweep">
-              <span className="text-brass">every single time.</span>
+              <span className="text-brass">earlier.</span>
             </span>
           </h2>
           <p className="mt-8 text-lg text-primary-foreground/70 leading-relaxed">
-            If you've worked with separate engineering, planning, and survey firms on the same
-            project, you already know what happens.
+            Better planning means more than a concept that looks good on paper. It means
+            identifying constraints before they become costly delays — and evaluating grading,
+            drainage, utilities, environmental impacts, constructability, and long-term
+            functionality before design decisions become difficult to change.
+          </p>
+          <p className="mt-4 text-lg text-primary-foreground font-medium leading-relaxed">
+            Most importantly, it means making informed decisions early — when they have the
+            greatest impact on project success.
           </p>
         </div>
 
@@ -286,7 +292,7 @@ export function Section2Problem() {
           ))}
         </div>
 
-        <SectionNav prev={{ to: "/", label: "Open" }} next={{ to: "/difference", label: "Difference" }} dark />
+        <SectionNav prev={{ to: "/", label: "Open" }} next={{ to: "/difference", label: "Process" }} dark />
       </div>
     </section>
   );
