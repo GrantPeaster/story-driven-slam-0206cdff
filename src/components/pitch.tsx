@@ -383,41 +383,8 @@ export function Section3Difference() {
   );
 }
 
-/* ---------------- 4. Scale ---------------- */
+/* ---------------- 4. Proof ---------------- */
 
-function ScaleStat({
-  label,
-  value,
-  sub,
-  accent,
-}: {
-  label: string;
-  value: string;
-  sub: string;
-  accent?: boolean;
-}) {
-  return (
-    <div
-      className={`rounded-xl p-5 border ${
-        accent
-          ? "bg-brass/15 border-brass/40"
-          : "bg-primary-foreground/[0.04] border-primary-foreground/10"
-      }`}
-    >
-      <div className="text-[10px] uppercase tracking-[0.18em] text-primary-foreground/60 mb-2">
-        {label}
-      </div>
-      <div
-        className={`font-display font-bold text-2xl ${
-          accent ? "text-brass" : "text-primary-foreground"
-        }`}
-      >
-        {value}
-      </div>
-      <div className="text-xs text-primary-foreground/60 mt-1">{sub}</div>
-    </div>
-  );
-}
 
 const PROJECTS = [
   {
