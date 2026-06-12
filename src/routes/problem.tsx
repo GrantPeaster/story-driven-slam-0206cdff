@@ -4,16 +4,16 @@ import { PageShell, Section2Problem } from "@/components/pitch";
 export const Route = createFileRoute("/problem")({
   head: () => ({
     meta: [
-      { title: "The Problem — Georgia Civil" },
+      { title: "The Approach — Georgia Civil" },
       {
         name: "description",
         content:
-          "Why the transactional model of separate engineering, planning, and survey firms costs you time, money, and certainty.",
+          "Better planning means making informed decisions early — before constraints become costly delays.",
       },
-      { property: "og:title", content: "The Problem — Georgia Civil" },
+      { property: "og:title", content: "The Approach — Georgia Civil" },
       {
         property: "og:description",
-        content: "Data drift, schedule slip, and late-caught flaws — the hidden cost of handoffs.",
+        content: "Why our approach begins earlier, and what better planning actually means.",
       },
     ],
   }),

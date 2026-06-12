@@ -4,16 +4,16 @@ import { PageShell, Section3Difference } from "@/components/pitch";
 export const Route = createFileRoute("/difference")({
   head: () => ({
     meta: [
-      { title: "The Difference — Georgia Civil" },
+      { title: "The Process — Georgia Civil" },
       {
         name: "description",
         content:
-          "Planners, surveyors, and civil engineers working the same project from day one. No handoffs, no gaps.",
+          "Planning driven by engineering realities. Feasibility, optimization, and engineering as one integrated process.",
       },
-      { property: "og:title", content: "The Difference — Georgia Civil" },
+      { property: "og:title", content: "The Process — Georgia Civil" },
       {
         property: "og:description",
-        content: "One integrated team. One process. One point of contact.",
+        content: "One integrated team, from feasibility through engineering.",
       },
     ],
   }),

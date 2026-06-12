@@ -8,12 +8,13 @@ export const Route = createFileRoute("/pitch")({
       {
         name: "description",
         content:
-          "GCI: your complete project partner. Planners, surveyors, and civil engineers on the same team from day one.",
+          "Built on better planning. Where feasibility, optimization, and engineering work as one.",
       },
       { property: "og:title", content: "The Pitch — Georgia Civil" },
       {
         property: "og:description",
-        content: "One team. One process. Saves you time, money, and the headache.",
+        content:
+          "Land planning, surveying, civil engineering, and landscape architecture together from day one.",
       },
     ],
   }),

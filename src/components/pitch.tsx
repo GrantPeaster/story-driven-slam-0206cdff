@@ -7,17 +7,19 @@ import {
   Workflow,
   Users,
   Clock,
-  CheckCircle2,
   AlertTriangle,
   Layers,
   MapPin,
+  Compass,
+  Ruler,
+  TreePine,
 } from "lucide-react";
 
 export const SECTIONS = [
   { id: "open", label: "Open", to: "/" as const },
-  { id: "problem", label: "Problem", to: "/problem" as const },
-  { id: "difference", label: "Difference", to: "/difference" as const },
-  { id: "scale", label: "Scale", to: "/scale" as const },
+  { id: "problem", label: "Approach", to: "/problem" as const },
+  { id: "difference", label: "Process", to: "/difference" as const },
+  { id: "scale", label: "Proof", to: "/scale" as const },
   { id: "pitch", label: "Pitch", to: "/pitch" as const },
 ];
 
@@ -155,32 +157,28 @@ export function Section1Open() {
             </span>
           </div>
           <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[0.98] text-primary">
-            Growing.{" "}
+            Built on{" "}
             <span className="underline-sweep">
-              <span>Creating.</span>
-            </span>{" "}
-            Innovating.
+              <span>Better Planning.</span>
+            </span>
           </h1>
-          <p className="mt-6 text-base sm:text-lg text-brass font-mono tracking-[0.18em] uppercase">
-            G · C · I
+          <p className="mt-6 text-lg sm:text-xl italic text-brass max-w-2xl leading-relaxed">
+            Where feasibility, optimization, and engineering work as one.
           </p>
           <p className="mt-8 text-lg sm:text-xl text-foreground/75 max-w-2xl leading-relaxed">
-            Every project we touch, we're growing the landscape of our region, creating the
-            drawings and plans that make development possible, and innovating with technology
-            most firms our size simply don't have access to.
-          </p>
-          <p className="mt-4 text-lg text-primary font-medium max-w-2xl leading-relaxed">
-            Surveyors, civil engineers, and land planners on your team — so you never settle
-            for the delays or inflated costs of transactional services.
+            At GCI, we believe successful projects are built on better planning. We integrate
+            land planning, surveying, civil engineering, and landscape architecture from the
+            very beginning — so owners, developers, municipalities, and institutions understand
+            what a site can realistically support before significant time and money are invested.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
               to="/problem"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:shadow-elegant"
             >
-              Hear the pitch <ArrowRight className="h-4 w-4" />
+              See the approach <ArrowRight className="h-4 w-4" />
             </Link>
-            <span className="text-sm text-muted-foreground font-mono">⌖ ~7 min read</span>
+            <span className="text-sm text-muted-foreground font-mono">⌖ ~6 min read</span>
           </div>
         </div>
 
@@ -200,16 +198,16 @@ export function Section1Open() {
                 />
               </div>
               <blockquote className="font-display text-2xl sm:text-3xl text-primary leading-snug">
-                "GCI: your{" "}
+                "Successful projects aren't built on{" "}
                 <span className="underline-sweep accent">
-                  <span className="text-accent">complete</span>
-                </span>{" "}
-                project partner."
+                  <span className="text-accent">assumptions</span>
+                </span>
+                . They're built on better planning."
               </blockquote>
               <div className="mt-8 pt-6 border-t border-border grid grid-cols-3 gap-4 text-center">
-                <Stat label="Disciplines" value="3" suffix="-in-1" />
-                <Stat label="Contact" value="1" suffix="point" />
-                <Stat label="Surprises" value="0" />
+                <Stat label="Feasibility" value="1" suffix="st" />
+                <Stat label="Optimization" value="1" suffix="team" />
+                <Stat label="Engineering" value="1" suffix="process" />
               </div>
             </div>
           </div>
@@ -223,19 +221,19 @@ export function Section1Open() {
 
 const PROBLEMS = [
   {
+    icon: AlertTriangle,
+    title: "Brought in too late",
+    body: "Many firms get involved after critical decisions are already locked in — when grading, drainage, and utility realities can no longer reshape the plan.",
+  },
+  {
     icon: Layers,
-    title: "Data doesn't match",
-    body: "Survey, planning, and engineering files drift apart the moment they live in three firms.",
+    title: "Concepts that look good on paper",
+    body: "Plans drawn without engineering input ignore constructability, environmental impacts, and long-term functionality — and become costly to change.",
   },
   {
     icon: Clock,
-    title: "Schedules slip",
-    body: "Every handoff is a waiting line. Deadlines absorb every gap between disciplines.",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Flaws caught late",
-    body: "By the time someone spots a design conflict, you're already behind and over budget.",
+    title: "Costly delays, late surprises",
+    body: "Constraints discovered mid-design force redesigns, budget overruns, and missed schedules — risks owners end up absorbing.",
   },
 ];
 
@@ -256,18 +254,24 @@ export function Section2Problem() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-3xl reveal">
           <div className="flex items-center gap-3 mb-6">
-            <span className="font-mono text-xs text-brass">02 / Problem</span>
+            <span className="font-mono text-xs text-brass">02 / Approach</span>
             <div className="h-px flex-1 bg-primary-foreground/15" />
           </div>
           <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.02]">
-            The transactional model is a risk you're absorbing —{" "}
+            Our approach begins{" "}
             <span className="underline-sweep">
-              <span className="text-brass">every single time.</span>
+              <span className="text-brass">earlier.</span>
             </span>
           </h2>
           <p className="mt-8 text-lg text-primary-foreground/70 leading-relaxed">
-            If you've worked with separate engineering, planning, and survey firms on the same
-            project, you already know what happens.
+            Better planning means more than a concept that looks good on paper. It means
+            identifying constraints before they become costly delays — and evaluating grading,
+            drainage, utilities, environmental impacts, constructability, and long-term
+            functionality before design decisions become difficult to change.
+          </p>
+          <p className="mt-4 text-lg text-primary-foreground font-medium leading-relaxed">
+            Most importantly, it means making informed decisions early — when they have the
+            greatest impact on project success.
           </p>
         </div>
 
@@ -287,7 +291,7 @@ export function Section2Problem() {
           ))}
         </div>
 
-        <SectionNav prev={{ to: "/", label: "Open" }} next={{ to: "/difference", label: "Difference" }} dark />
+        <SectionNav prev={{ to: "/", label: "Open" }} next={{ to: "/difference", label: "Process" }} dark />
       </div>
     </section>
   );
@@ -297,19 +301,19 @@ export function Section2Problem() {
 
 const TIMELINE = [
   {
-    label: "Day 1",
-    title: "Same room, same project",
-    body: "Civil engineers, land planners, and surveyors start together — not in sequence.",
+    label: "Step 1 — Feasibility",
+    title: "Test what the site can actually support",
+    body: "Land planning, surveying, civil, and landscape architecture together evaluate grading, drainage, utilities, and environmental impacts before commitments are made.",
   },
   {
-    label: "Every phase",
-    title: "One integrated process",
-    body: "Shared models. Shared data. Decisions made once and applied everywhere.",
+    label: "Step 2 — Optimization",
+    title: "Engineering realities drive the plan",
+    body: "Practical field knowledge plus advanced site optimization tools test ideas against real-world conditions — maximizing developable area and value.",
   },
   {
-    label: "Every call",
-    title: "One point of contact",
-    body: "No vendor triangulation. No 'let me loop in the surveyor.' Just answers.",
+    label: "Step 3 — Engineering",
+    title: "One integrated team, start to finish",
+    body: "The same team that planned the site engineers it — so decisions made early carry through with no handoff loss.",
   },
 ];
 
@@ -319,18 +323,34 @@ export function Section3Difference() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-12 gap-14">
           <div className="lg:col-span-5 reveal">
-            <span className="font-mono text-xs text-brass">03 / The Difference</span>
+            <span className="font-mono text-xs text-brass">03 / Process</span>
             <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary leading-[1.05]">
-              GCI is built differently.
+              Planning driven by engineering realities.
             </h2>
             <div className="brass-rule mt-6" />
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
-              Our disciplines aren't handed off to each other — they're working together from day
-              one, on the same project, toward the same deadline.
+              What makes GCI different is that our planning process is driven by engineering
+              realities. Our integrated team works together from day one — combining practical
+              field knowledge, technical expertise, and advanced site optimization tools to
+              develop solutions that are both achievable and cost-effective.
             </p>
             <p className="mt-4 text-lg text-primary font-medium">
-              No gap between disciplines. No gap between our team.
+              Reduce risk. Improve constructability. Maximize the value of the investment.
             </p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
+                <Compass className="h-3.5 w-3.5 text-brass" /> Land Planning
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
+                <Ruler className="h-3.5 w-3.5 text-brass" /> Surveying
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
+                <Workflow className="h-3.5 w-3.5 text-brass" /> Civil Engineering
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
+                <TreePine className="h-3.5 w-3.5 text-brass" /> Landscape Architecture
+              </span>
+            </div>
           </div>
 
           <div className="lg:col-span-7">
@@ -356,113 +376,86 @@ export function Section3Difference() {
           </div>
         </div>
 
-        <SectionNav prev={{ to: "/problem", label: "Problem" }} next={{ to: "/scale", label: "Scale" }} />
+        <SectionNav prev={{ to: "/problem", label: "Approach" }} next={{ to: "/scale", label: "Proof" }} />
       </div>
     </section>
   );
 }
 
-/* ---------------- 4. Scale ---------------- */
+/* ---------------- 4. Proof ---------------- */
 
-function ScaleStat({
-  label,
-  value,
-  sub,
-  accent,
-}: {
-  label: string;
-  value: string;
-  sub: string;
-  accent?: boolean;
-}) {
-  return (
-    <div
-      className={`rounded-xl p-5 border ${
-        accent
-          ? "bg-brass/15 border-brass/40"
-          : "bg-primary-foreground/[0.04] border-primary-foreground/10"
-      }`}
-    >
-      <div className="text-[10px] uppercase tracking-[0.18em] text-primary-foreground/60 mb-2">
-        {label}
-      </div>
-      <div
-        className={`font-display font-bold text-2xl ${
-          accent ? "text-brass" : "text-primary-foreground"
-        }`}
-      >
-        {value}
-      </div>
-      <div className="text-xs text-primary-foreground/60 mt-1">{sub}</div>
-    </div>
-  );
-}
+
+const PROJECTS = [
+  {
+    name: "Bana 85",
+    type: "Industrial",
+    scale: "700+ acres",
+    body: "On a 700-plus-acre industrial development with the potential for millions of square feet of space, our team coordinated grading, utilities, roadway elevations, and site infrastructure as an interconnected system — maximizing developable acreage and overall property value.",
+  },
+  {
+    name: "Prowell Park",
+    type: "Master plan refinement",
+    scale: "Community-focused",
+    body: "We refined an existing master plan by balancing drainage, grading, lighting, buffering, neighborhood compatibility, and future growth — preserving the owner's vision while creating a practical, community-focused solution.",
+  },
+  {
+    name: "Morgan County Park",
+    type: "Public infrastructure",
+    scale: "Phased growth",
+    body: "We developed infrastructure strategies that supported both immediate needs and future phases of development — ensuring today's investment continues delivering value for years to come.",
+  },
+];
 
 export function Section5Scale() {
   return (
     <section id="scale" className="relative py-32 pt-40">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="reveal order-2 lg:order-1">
-            <div className="relative aspect-[5/4] rounded-2xl overflow-hidden shadow-elegant">
-              <video
-                className="absolute inset-0 h-full w-full object-cover"
-                src="/media/morganmedical.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/75 to-primary/95" />
-              <div className="relative h-full p-10 flex flex-col justify-between">
-                <div className="flex items-center justify-between text-primary-foreground/70 text-xs font-mono">
-                  <span>// regional depth × local knowledge</span>
-                  <MapPin className="h-4 w-4" />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <ScaleStat label="Regional firm" value="Depth" sub="technical expertise" />
-                  <ScaleStat label="Local firm" value="Speed" sub="actual market knowledge" />
-                  <ScaleStat label="GCI" value="Both" sub="without the trade-offs" accent />
-                  <ScaleStat label="Result" value="Above" sub="the rest" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="reveal order-1 lg:order-2">
-            <span className="font-mono text-xs text-brass">04 / Scale</span>
-            <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary leading-[1.05]">
-              We're not the largest firm. That's the point.
-            </h2>
-            <div className="brass-rule mt-6" />
-            <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
-              Our abilities get questioned because of our size. You're right — we're not a large
-              regional firm. That's just another reason GCI is above the rest.
-            </p>
-            <ul className="mt-8 space-y-4">
-              {[
-                "Technical depth of a regional practice",
-                "Responsiveness of a firm that picks up the phone",
-                "Local knowledge of a team that actually knows your market",
-              ].map((line) => (
-                <li key={line} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-brass shrink-0 mt-0.5" />
-                  <span className="text-primary">{line}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 text-base text-muted-foreground leading-relaxed border-l-2 border-brass/60 pl-4 italic">
-              Right now, a lot of firms are living on the edge — absorbing the delays, cost
-              inflation, and communication gaps of a fragmented team. GCI puts you on the
-              cutting edge instead: integrated systems, measurable savings, and principals with
-              you through every phase of development.
-            </p>
-          </div>
+        <div className="max-w-3xl reveal">
+          <span className="font-mono text-xs text-brass">04 / Proof</span>
+          <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary leading-[1.05]">
+            We've applied that approach across projects of all sizes.
+          </h2>
+          <div className="brass-rule mt-6" />
+          <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
+            Industrial developments, municipal facilities, school campuses, recreational
+            destinations, residential communities — the goal stays the same: helping clients
+            make smarter decisions, reduce uncertainty, and move forward with confidence.
+          </p>
         </div>
 
-        <SectionNav prev={{ to: "/difference", label: "Difference" }} next={{ to: "/pitch", label: "Pitch" }} />
+        <div className="mt-16 grid md:grid-cols-3 gap-6">
+          {PROJECTS.map((p, i) => (
+            <article
+              key={p.name}
+              className="reveal hover-lift bg-card border border-border rounded-2xl p-7 shadow-elegant/40 flex flex-col"
+              style={{ animationDelay: `${i * 100}ms` }}
+            >
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-brass font-semibold mb-4">
+                <MapPin className="h-3.5 w-3.5" /> {p.type}
+              </div>
+              <h3 className="font-display font-bold text-2xl text-primary mb-1">{p.name}</h3>
+              <div className="text-xs text-muted-foreground font-mono mb-4">{p.scale}</div>
+              <p className="text-[15px] text-muted-foreground leading-relaxed">{p.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-16 reveal-fade max-w-3xl mx-auto text-center">
+          <p className="font-display text-2xl sm:text-3xl text-primary leading-snug">
+            Because successful projects aren't built on{" "}
+            <span className="text-muted-foreground line-through decoration-brass/60">
+              assumptions
+            </span>
+            .
+            <br />
+            They're built on{" "}
+            <span className="underline-sweep">
+              <span className="text-brass">better planning.</span>
+            </span>
+          </p>
+        </div>
+
+        <SectionNav prev={{ to: "/difference", label: "Process" }} next={{ to: "/pitch", label: "Pitch" }} />
       </div>
     </section>
   );
@@ -488,6 +481,9 @@ export function Section6Pitch() {
           <h2 className="mt-4 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.02]">
             So — what do I tell prospective clients?
           </h2>
+          <p className="mt-6 italic text-brass text-lg sm:text-xl">
+            Where feasibility, optimization, and engineering work as one.
+          </p>
         </div>
 
         <div className="mt-14 reveal">
@@ -496,24 +492,29 @@ export function Section6Pitch() {
               Presentable Pitch
             </div>
             <p className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-primary leading-[1.18]">
-              Don't settle for transactional services. We put planners, surveyors, and civil
-              engineers on the{" "}
+              At GCI, we bring land planning, surveying, civil engineering, and landscape
+              architecture together from{" "}
               <span className="underline-sweep accent">
-                <span className="text-accent">same team</span>
+                <span className="text-accent">day one</span>
               </span>{" "}
-              from day one. GCI saves you time, money, and the headache of carrying your
-              development from firm to firm.
+              — to help clients make smarter decisions before costly commitments are made.
+            </p>
+            <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed">
+              By combining feasibility, optimization, and engineering into one integrated
+              process, we reduce risk, maximize site potential, and help projects move from
+              vision to reality with confidence.
             </p>
             <div className="mt-10 pt-8 border-t border-border flex flex-wrap items-center justify-between gap-6">
               <p className="font-display font-extrabold text-2xl text-primary">
-                GCI:{" "}
+                Built on{" "}
                 <span className="underline-sweep">
-                  <span className="text-brass">your complete project partner.</span>
+                  <span className="text-brass">better planning.</span>
                 </span>
               </p>
-              <div className="flex items-center gap-4">
-                <Pillet icon={Users} label="One team" />
-                <Pillet icon={Workflow} label="One process" />
+              <div className="flex items-center gap-3 flex-wrap">
+                <Pillet icon={Compass} label="Feasibility" />
+                <Pillet icon={Workflow} label="Optimization" />
+                <Pillet icon={Ruler} label="Engineering" />
               </div>
             </div>
           </div>
@@ -528,7 +529,7 @@ export function Section6Pitch() {
           </Link>
         </div>
 
-        <SectionNav prev={{ to: "/scale", label: "Scale" }} />
+        <SectionNav prev={{ to: "/scale", label: "Proof" }} />
       </div>
     </section>
   );
