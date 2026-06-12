@@ -11,13 +11,16 @@ import {
   AlertTriangle,
   Layers,
   MapPin,
+  Compass,
+  Ruler,
+  TreePine,
 } from "lucide-react";
 
 export const SECTIONS = [
   { id: "open", label: "Open", to: "/" as const },
-  { id: "problem", label: "Problem", to: "/problem" as const },
-  { id: "difference", label: "Difference", to: "/difference" as const },
-  { id: "scale", label: "Scale", to: "/scale" as const },
+  { id: "problem", label: "Approach", to: "/problem" as const },
+  { id: "difference", label: "Process", to: "/difference" as const },
+  { id: "scale", label: "Proof", to: "/scale" as const },
   { id: "pitch", label: "Pitch", to: "/pitch" as const },
 ];
 
