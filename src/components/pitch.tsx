@@ -7,7 +7,6 @@ import {
   Workflow,
   Users,
   Clock,
-  CheckCircle2,
   AlertTriangle,
   Layers,
   MapPin,
