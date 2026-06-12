@@ -158,32 +158,28 @@ export function Section1Open() {
             </span>
           </div>
           <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[0.98] text-primary">
-            Growing.{" "}
+            Built on{" "}
             <span className="underline-sweep">
-              <span>Creating.</span>
-            </span>{" "}
-            Innovating.
+              <span>Better Planning.</span>
+            </span>
           </h1>
-          <p className="mt-6 text-base sm:text-lg text-brass font-mono tracking-[0.18em] uppercase">
-            G · C · I
+          <p className="mt-6 text-lg sm:text-xl italic text-brass max-w-2xl leading-relaxed">
+            Where feasibility, optimization, and engineering work as one.
           </p>
           <p className="mt-8 text-lg sm:text-xl text-foreground/75 max-w-2xl leading-relaxed">
-            Every project we touch, we're growing the landscape of our region, creating the
-            drawings and plans that make development possible, and innovating with technology
-            most firms our size simply don't have access to.
-          </p>
-          <p className="mt-4 text-lg text-primary font-medium max-w-2xl leading-relaxed">
-            Surveyors, civil engineers, and land planners on your team — so you never settle
-            for the delays or inflated costs of transactional services.
+            At GCI, we believe successful projects are built on better planning. We integrate
+            land planning, surveying, civil engineering, and landscape architecture from the
+            very beginning — so owners, developers, municipalities, and institutions understand
+            what a site can realistically support before significant time and money are invested.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
               to="/problem"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:shadow-elegant"
             >
-              Hear the pitch <ArrowRight className="h-4 w-4" />
+              See the approach <ArrowRight className="h-4 w-4" />
             </Link>
-            <span className="text-sm text-muted-foreground font-mono">⌖ ~7 min read</span>
+            <span className="text-sm text-muted-foreground font-mono">⌖ ~6 min read</span>
           </div>
         </div>
 
@@ -203,16 +199,16 @@ export function Section1Open() {
                 />
               </div>
               <blockquote className="font-display text-2xl sm:text-3xl text-primary leading-snug">
-                "GCI: your{" "}
+                "Successful projects aren't built on{" "}
                 <span className="underline-sweep accent">
-                  <span className="text-accent">complete</span>
-                </span>{" "}
-                project partner."
+                  <span className="text-accent">assumptions</span>
+                </span>
+                . They're built on better planning."
               </blockquote>
               <div className="mt-8 pt-6 border-t border-border grid grid-cols-3 gap-4 text-center">
-                <Stat label="Disciplines" value="3" suffix="-in-1" />
-                <Stat label="Contact" value="1" suffix="point" />
-                <Stat label="Surprises" value="0" />
+                <Stat label="Feasibility" value="1" suffix="st" />
+                <Stat label="Optimization" value="1" suffix="team" />
+                <Stat label="Engineering" value="1" suffix="process" />
               </div>
             </div>
           </div>
