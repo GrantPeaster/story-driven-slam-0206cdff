@@ -302,19 +302,19 @@ export function Section2Problem() {
 
 const TIMELINE = [
   {
-    label: "Day 1",
-    title: "Same room, same project",
-    body: "Civil engineers, land planners, and surveyors start together — not in sequence.",
+    label: "Step 1 — Feasibility",
+    title: "Test what the site can actually support",
+    body: "Land planning, surveying, civil, and landscape architecture together evaluate grading, drainage, utilities, and environmental impacts before commitments are made.",
   },
   {
-    label: "Every phase",
-    title: "One integrated process",
-    body: "Shared models. Shared data. Decisions made once and applied everywhere.",
+    label: "Step 2 — Optimization",
+    title: "Engineering realities drive the plan",
+    body: "Practical field knowledge plus advanced site optimization tools test ideas against real-world conditions — maximizing developable area and value.",
   },
   {
-    label: "Every call",
-    title: "One point of contact",
-    body: "No vendor triangulation. No 'let me loop in the surveyor.' Just answers.",
+    label: "Step 3 — Engineering",
+    title: "One integrated team, start to finish",
+    body: "The same team that planned the site engineers it — so decisions made early carry through with no handoff loss.",
   },
 ];
 
@@ -324,18 +324,34 @@ export function Section3Difference() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-12 gap-14">
           <div className="lg:col-span-5 reveal">
-            <span className="font-mono text-xs text-brass">03 / The Difference</span>
+            <span className="font-mono text-xs text-brass">03 / Process</span>
             <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary leading-[1.05]">
-              GCI is built differently.
+              Planning driven by engineering realities.
             </h2>
             <div className="brass-rule mt-6" />
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
-              Our disciplines aren't handed off to each other — they're working together from day
-              one, on the same project, toward the same deadline.
+              What makes GCI different is that our planning process is driven by engineering
+              realities. Our integrated team works together from day one — combining practical
+              field knowledge, technical expertise, and advanced site optimization tools to
+              develop solutions that are both achievable and cost-effective.
             </p>
             <p className="mt-4 text-lg text-primary font-medium">
-              No gap between disciplines. No gap between our team.
+              Reduce risk. Improve constructability. Maximize the value of the investment.
             </p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
+                <Compass className="h-3.5 w-3.5 text-brass" /> Land Planning
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
+                <Ruler className="h-3.5 w-3.5 text-brass" /> Surveying
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
+                <Workflow className="h-3.5 w-3.5 text-brass" /> Civil Engineering
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
+                <TreePine className="h-3.5 w-3.5 text-brass" /> Landscape Architecture
+              </span>
+            </div>
           </div>
 
           <div className="lg:col-span-7">
@@ -361,7 +377,7 @@ export function Section3Difference() {
           </div>
         </div>
 
-        <SectionNav prev={{ to: "/problem", label: "Problem" }} next={{ to: "/scale", label: "Scale" }} />
+        <SectionNav prev={{ to: "/problem", label: "Approach" }} next={{ to: "/scale", label: "Proof" }} />
       </div>
     </section>
   );
