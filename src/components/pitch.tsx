@@ -419,71 +419,77 @@ function ScaleStat({
   );
 }
 
+const PROJECTS = [
+  {
+    name: "Bana 85",
+    type: "Industrial",
+    scale: "700+ acres",
+    body: "On a 700-plus-acre industrial development with the potential for millions of square feet of space, our team coordinated grading, utilities, roadway elevations, and site infrastructure as an interconnected system — maximizing developable acreage and overall property value.",
+  },
+  {
+    name: "Prowell Park",
+    type: "Master plan refinement",
+    scale: "Community-focused",
+    body: "We refined an existing master plan by balancing drainage, grading, lighting, buffering, neighborhood compatibility, and future growth — preserving the owner's vision while creating a practical, community-focused solution.",
+  },
+  {
+    name: "Morgan County Park",
+    type: "Public infrastructure",
+    scale: "Phased growth",
+    body: "We developed infrastructure strategies that supported both immediate needs and future phases of development — ensuring today's investment continues delivering value for years to come.",
+  },
+];
+
 export function Section5Scale() {
   return (
     <section id="scale" className="relative py-32 pt-40">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="reveal order-2 lg:order-1">
-            <div className="relative aspect-[5/4] rounded-2xl overflow-hidden shadow-elegant">
-              <video
-                className="absolute inset-0 h-full w-full object-cover"
-                src="/media/morganmedical.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/75 to-primary/95" />
-              <div className="relative h-full p-10 flex flex-col justify-between">
-                <div className="flex items-center justify-between text-primary-foreground/70 text-xs font-mono">
-                  <span>// regional depth × local knowledge</span>
-                  <MapPin className="h-4 w-4" />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <ScaleStat label="Regional firm" value="Depth" sub="technical expertise" />
-                  <ScaleStat label="Local firm" value="Speed" sub="actual market knowledge" />
-                  <ScaleStat label="GCI" value="Both" sub="without the trade-offs" accent />
-                  <ScaleStat label="Result" value="Above" sub="the rest" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="reveal order-1 lg:order-2">
-            <span className="font-mono text-xs text-brass">04 / Scale</span>
-            <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary leading-[1.05]">
-              We're not the largest firm. That's the point.
-            </h2>
-            <div className="brass-rule mt-6" />
-            <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
-              Our abilities get questioned because of our size. You're right — we're not a large
-              regional firm. That's just another reason GCI is above the rest.
-            </p>
-            <ul className="mt-8 space-y-4">
-              {[
-                "Technical depth of a regional practice",
-                "Responsiveness of a firm that picks up the phone",
-                "Local knowledge of a team that actually knows your market",
-              ].map((line) => (
-                <li key={line} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-brass shrink-0 mt-0.5" />
-                  <span className="text-primary">{line}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 text-base text-muted-foreground leading-relaxed border-l-2 border-brass/60 pl-4 italic">
-              Right now, a lot of firms are living on the edge — absorbing the delays, cost
-              inflation, and communication gaps of a fragmented team. GCI puts you on the
-              cutting edge instead: integrated systems, measurable savings, and principals with
-              you through every phase of development.
-            </p>
-          </div>
+        <div className="max-w-3xl reveal">
+          <span className="font-mono text-xs text-brass">04 / Proof</span>
+          <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary leading-[1.05]">
+            We've applied that approach across projects of all sizes.
+          </h2>
+          <div className="brass-rule mt-6" />
+          <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
+            Industrial developments, municipal facilities, school campuses, recreational
+            destinations, residential communities — the goal stays the same: helping clients
+            make smarter decisions, reduce uncertainty, and move forward with confidence.
+          </p>
         </div>
 
-        <SectionNav prev={{ to: "/difference", label: "Difference" }} next={{ to: "/pitch", label: "Pitch" }} />
+        <div className="mt-16 grid md:grid-cols-3 gap-6">
+          {PROJECTS.map((p, i) => (
+            <article
+              key={p.name}
+              className="reveal hover-lift bg-card border border-border rounded-2xl p-7 shadow-elegant/40 flex flex-col"
+              style={{ animationDelay: `${i * 100}ms` }}
+            >
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-brass font-semibold mb-4">
+                <MapPin className="h-3.5 w-3.5" /> {p.type}
+              </div>
+              <h3 className="font-display font-bold text-2xl text-primary mb-1">{p.name}</h3>
+              <div className="text-xs text-muted-foreground font-mono mb-4">{p.scale}</div>
+              <p className="text-[15px] text-muted-foreground leading-relaxed">{p.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-16 reveal-fade max-w-3xl mx-auto text-center">
+          <p className="font-display text-2xl sm:text-3xl text-primary leading-snug">
+            Because successful projects aren't built on{" "}
+            <span className="text-muted-foreground line-through decoration-brass/60">
+              assumptions
+            </span>
+            .
+            <br />
+            They're built on{" "}
+            <span className="underline-sweep">
+              <span className="text-brass">better planning.</span>
+            </span>
+          </p>
+        </div>
+
+        <SectionNav prev={{ to: "/difference", label: "Process" }} next={{ to: "/pitch", label: "Pitch" }} />
       </div>
     </section>
   );
