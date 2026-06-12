@@ -5,17 +5,17 @@ import { PageShell, Section1Open } from "@/components/pitch";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Georgia Civil — Your Complete Project Partner" },
+      { title: "Georgia Civil — Built on Better Planning" },
       {
         name: "description",
         content:
-          "Don't settle for transactional services. Georgia Civil puts planners, surveyors, and civil engineers on the same team from day one.",
+          "Where feasibility, optimization, and engineering work as one. Land planning, surveying, civil engineering, and landscape architecture together from day one.",
       },
-      { property: "og:title", content: "Georgia Civil — Your Complete Project Partner" },
+      { property: "og:title", content: "Georgia Civil — Built on Better Planning" },
       {
         property: "og:description",
         content:
-          "Integrated planning, engineering, and surveying. One team. One process. No surprises.",
+          "Successful projects aren't built on assumptions. They're built on better planning.",
       },
     ],
   }),
@@ -31,7 +31,7 @@ function OpenPage() {
           to="/problem"
           className="inline-flex items-center gap-2 text-sm font-nav text-muted-foreground hover:text-primary transition-colors"
         >
-          Problem <ArrowRight className="h-3.5 w-3.5" />
+          Approach <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
     </PageShell>
