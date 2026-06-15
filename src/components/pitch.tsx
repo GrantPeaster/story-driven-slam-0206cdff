@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import gciLogo from "@/assets/gci-secondary-logo.png";
 import gciGeorgiaMark from "@/assets/gci-georgia-mark.png";
 import {
@@ -11,7 +11,8 @@ import {
   Layers,
   Compass,
   Ruler,
-  TreePine,
+  Menu,
+  X,
 } from "lucide-react";
 
 export const SECTIONS = [
