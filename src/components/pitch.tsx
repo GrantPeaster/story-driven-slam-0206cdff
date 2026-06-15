@@ -48,12 +48,16 @@ export function useRevealOnScroll() {
 }
 
 export function Nav() {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <img src={gciLogo} alt="Georgia Civil" className="h-9 sm:h-10 w-auto" />
         </Link>
+
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-7 text-xs">
           {SECTIONS.map((s, i) => (
             <Link
@@ -70,6 +74,7 @@ export function Nav() {
             </Link>
           ))}
         </nav>
+
         <div className="flex items-center gap-5">
           <Link
             to="/pitch"
@@ -77,8 +82,51 @@ export function Nav() {
           >
             The pitch <ArrowRight className="h-3.5 w-3.5" />
           </Link>
+
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            className="md:hidden inline-flex items-center justify-center h-10 w-10 -mr-2 text-foreground"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {open && (
+        <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-md">
+          <nav className="mx-auto max-w-7xl px-6 py-4 flex flex-col gap-1">
+            {SECTIONS.map((s, i) => (
+              <Link
+                key={s.id}
+                to={s.to}
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 py-2.5 text-sm font-nav text-muted-foreground hover:text-primary transition-colors"
+                activeProps={{ className: "flex items-center gap-3 py-2.5 text-sm font-nav text-primary" }}
+                activeOptions={{ exact: true }}
+              >
+                <span className="text-brass font-mono text-[11px] tracking-normal normal-case w-5">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {s.label}
+              </Link>
+            ))}
+            <div className="mt-2 pt-3 border-t border-border/40">
+              <Link
+                to="/pitch"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                The pitch <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
