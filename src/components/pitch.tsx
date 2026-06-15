@@ -380,7 +380,6 @@ const DISCIPLINES = [
   { icon: Compass, label: "Land Planning" },
   { icon: Ruler, label: "Surveying" },
   { icon: Workflow, label: "Civil Engineering" },
-  { icon: TreePine, label: "Landscape Architecture" },
 ];
 
 export function Section3Difference() {
