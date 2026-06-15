@@ -362,7 +362,7 @@ const TIMELINE = [
   {
     label: "Feasibility",
     title: "Test what the site can actually support",
-    body: "Land planning, surveying, civil, and landscape architecture together evaluate grading, drainage, utilities, and environmental impacts before commitments are made.",
+    body: "Land planning, surveying, and civil engineering together evaluate grading, drainage, utilities, and environmental impacts before commitments are made.",
   },
   {
     label: "Optimization",
