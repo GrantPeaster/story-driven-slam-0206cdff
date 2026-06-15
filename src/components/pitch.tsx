@@ -9,7 +9,6 @@ import {
   Clock,
   AlertTriangle,
   Layers,
-  MapPin,
   Compass,
   Ruler,
   TreePine,
@@ -112,16 +111,59 @@ export function PageShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Stat({ label, value, suffix }: { label: string; value: string; suffix?: string }) {
+/* Small editorial graphic — surveyor's crosshair / target mark */
+function CrosshairMark({ className = "" }: { className?: string }) {
   return (
-    <div>
-      <div className="font-display font-extrabold text-3xl text-primary">
-        {value}
-        {suffix && <span className="text-brass text-sm font-medium ml-0.5">{suffix}</span>}
-      </div>
-      <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
+    <svg
+      viewBox="0 0 80 80"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      aria-hidden="true"
+    >
+      <circle cx="40" cy="40" r="30" />
+      <circle cx="40" cy="40" r="18" />
+      <circle cx="40" cy="40" r="2" fill="currentColor" />
+      <line x1="40" y1="0" x2="40" y2="22" />
+      <line x1="40" y1="58" x2="40" y2="80" />
+      <line x1="0" y1="40" x2="22" y2="40" />
+      <line x1="58" y1="40" x2="80" y2="40" />
+    </svg>
+  );
+}
+
+/* Topographic contour lines graphic */
+function ContourLines({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 400 300"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      aria-hidden="true"
+    >
+      <path d="M-20,260 C 80,220 160,240 220,200 C 280,160 340,180 420,150" />
+      <path d="M-20,230 C 80,190 160,210 220,170 C 280,130 340,150 420,120" />
+      <path d="M-20,200 C 80,160 160,180 220,140 C 280,100 340,120 420,90" />
+      <path d="M-20,170 C 80,130 160,150 220,110 C 280,70 340,90 420,60" />
+      <path d="M-20,140 C 80,100 160,120 220,80 C 280,40 340,60 420,30" />
+      <path d="M-20,110 C 80,70 160,90 220,50 C 280,10 340,30 420,0" />
+    </svg>
+  );
+}
+
+/* Section number marker used as adjacent graphic */
+function SectionMark({ num, label }: { num: string; label: string }) {
+  return (
+    <div className="flex items-baseline gap-4">
+      <span className="font-display font-extrabold text-7xl sm:text-8xl text-brass/25 leading-none">
+        {num}
+      </span>
+      <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-brass">
         {label}
-      </div>
+      </span>
     </div>
   );
 }
@@ -148,21 +190,22 @@ export function Section1Open() {
       <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-background/90" />
       <div className="absolute inset-0 bg-gradient-hero opacity-80" />
 
-      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center w-full">
-        <div className="lg:col-span-7 reveal">
+      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full">
+        <div className="lg:col-span-8 reveal">
           <div className="flex items-center gap-3 mb-8">
             <div className="brass-rule" />
             <span className="text-[11px] uppercase tracking-[0.22em] text-brass font-semibold">
               The Georgia Civil Pitch
             </span>
           </div>
-          <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-[0.98] text-primary">
-            Built on{" "}
+          <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-8xl leading-[0.95] text-primary">
+            Built on
+            <br />
             <span className="underline-sweep">
               <span>Better Planning.</span>
             </span>
           </h1>
-          <p className="mt-6 text-lg sm:text-xl italic text-brass max-w-2xl leading-relaxed">
+          <p className="mt-8 text-lg sm:text-xl italic text-brass max-w-2xl leading-relaxed border-l-2 border-brass/60 pl-5">
             Where feasibility, optimization, and engineering work as one.
           </p>
           <p className="mt-8 text-lg sm:text-xl text-foreground/75 max-w-2xl leading-relaxed">
@@ -171,44 +214,41 @@ export function Section1Open() {
             very beginning — so owners, developers, municipalities, and institutions understand
             what a site can realistically support before significant time and money are invested.
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center gap-5">
             <Link
               to="/problem"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:shadow-elegant"
             >
               See the approach <ArrowRight className="h-4 w-4" />
             </Link>
+            <Link
+              to="/pitch"
+              className="inline-flex items-center gap-2 text-sm font-nav text-primary hover:text-accent transition-colors"
+            >
+              Or skip to the pitch <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
             <span className="text-sm text-muted-foreground font-mono">⌖ ~6 min read</span>
           </div>
         </div>
 
-        <div className="lg:col-span-5 reveal-fade">
-          <div className="relative">
-            <div className="absolute -inset-6 bg-gradient-brass opacity-20 blur-3xl rounded-full" />
-            <div className="relative bg-card/95 backdrop-blur border border-border rounded-2xl p-8 shadow-elegant float-slow">
-              <div className="flex items-start justify-between gap-6 mb-6">
-                <div className="text-[11px] uppercase tracking-[0.22em] text-brass font-semibold">
-                  The Promise
-                </div>
-                <img
-                  src={gciGeorgiaMark}
-                  alt="Georgia Civil — Georgia mark"
-                  className="h-16 w-auto -mt-2 -mr-2 select-none"
-                  loading="eager"
-                />
+        <div className="lg:col-span-4 reveal-fade hidden lg:block">
+          <div className="relative text-brass/60">
+            <CrosshairMark className="w-full max-w-xs ml-auto" />
+            <div className="mt-8 border-l-2 border-brass/40 pl-5 text-right ml-auto max-w-xs">
+              <div className="text-[10px] uppercase tracking-[0.25em] text-brass font-semibold mb-2">
+                The Promise
               </div>
-              <blockquote className="font-display text-2xl sm:text-3xl text-primary leading-snug">
-                "Successful projects aren't built on{" "}
-                <span className="underline-sweep accent">
-                  <span className="text-accent">assumptions</span>
-                </span>
-                . They're built on better planning."
-              </blockquote>
-              <div className="mt-8 pt-6 border-t border-border grid grid-cols-3 gap-4 text-center">
-                <Stat label="Feasibility" value="1" suffix="st" />
-                <Stat label="Optimization" value="1" suffix="team" />
-                <Stat label="Engineering" value="1" suffix="process" />
-              </div>
+              <p className="font-display text-xl text-primary leading-snug text-left">
+                Successful projects aren't built on{" "}
+                <span className="text-accent italic">assumptions.</span>{" "}
+                They're built on better planning.
+              </p>
+              <img
+                src={gciGeorgiaMark}
+                alt=""
+                className="h-12 w-auto mt-6 ml-auto opacity-80"
+                aria-hidden="true"
+              />
             </div>
           </div>
         </div>
@@ -217,7 +257,7 @@ export function Section1Open() {
   );
 }
 
-/* ---------------- 2. Problem ---------------- */
+/* ---------------- 2. Approach ---------------- */
 
 const PROBLEMS = [
   {
@@ -239,7 +279,10 @@ const PROBLEMS = [
 
 export function Section2Problem() {
   return (
-    <section id="problem" className="relative py-32 pt-40 bg-primary text-primary-foreground overflow-hidden">
+    <section
+      id="problem"
+      className="relative py-32 pt-40 bg-primary text-primary-foreground overflow-hidden"
+    >
       <video
         className="absolute inset-0 h-full w-full object-cover opacity-15 mix-blend-luminosity"
         src="/media/mcprs.mp4"
@@ -251,139 +294,178 @@ export function Section2Problem() {
         aria-hidden="true"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/95 to-primary" />
+      <ContourLines className="absolute inset-x-0 bottom-0 w-full h-[60%] text-brass/15" />
+
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="max-w-3xl reveal">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="font-mono text-xs text-brass">02 / Approach</span>
-            <div className="h-px flex-1 bg-primary-foreground/15" />
+        <div className="grid lg:grid-cols-12 gap-12 items-end">
+          <div className="lg:col-span-7 reveal">
+            <SectionMark num="02" label="Approach" />
+            <h2 className="mt-6 font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.02]">
+              Our approach begins{" "}
+              <span className="underline-sweep">
+                <span className="text-brass">earlier.</span>
+              </span>
+            </h2>
           </div>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.02]">
-            Our approach begins{" "}
-            <span className="underline-sweep">
-              <span className="text-brass">earlier.</span>
-            </span>
-          </h2>
-          <p className="mt-8 text-lg text-primary-foreground/70 leading-relaxed">
-            Better planning means more than a concept that looks good on paper. It means
-            identifying constraints before they become costly delays — and evaluating grading,
-            drainage, utilities, environmental impacts, constructability, and long-term
-            functionality before design decisions become difficult to change.
-          </p>
-          <p className="mt-4 text-lg text-primary-foreground font-medium leading-relaxed">
-            Most importantly, it means making informed decisions early — when they have the
-            greatest impact on project success.
-          </p>
+          <div className="lg:col-span-5 reveal">
+            <p className="text-lg text-primary-foreground/75 leading-relaxed border-l-2 border-brass/60 pl-5">
+              Better planning means more than a concept that looks good on paper. It means
+              identifying constraints before they become costly delays — evaluating grading,
+              drainage, utilities, environmental impacts, constructability, and long-term
+              functionality before design decisions become difficult to change.
+            </p>
+            <p className="mt-5 text-lg text-primary-foreground font-medium leading-relaxed pl-5">
+              Most importantly: making informed decisions early — when they have the greatest
+              impact on project success.
+            </p>
+          </div>
         </div>
 
-        <div className="mt-20 grid md:grid-cols-3 gap-6">
+        {/* Editorial list — no cards, only rules and adjacent icon graphics */}
+        <div className="mt-20 border-t border-primary-foreground/15">
           {PROBLEMS.map((p, i) => (
             <div
               key={p.title}
-              className="reveal hover-lift bg-primary-foreground/[0.04] border border-primary-foreground/10 rounded-2xl p-8 backdrop-blur-sm"
+              className="reveal grid grid-cols-12 gap-6 sm:gap-10 py-10 border-b border-primary-foreground/15 items-start"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <div className="h-11 w-11 rounded-xl bg-accent/15 text-accent grid place-items-center mb-6">
-                <p.icon className="h-5 w-5" />
+              <div className="col-span-2 sm:col-span-1 font-mono text-xs text-brass pt-1">
+                0{i + 1}
               </div>
-              <h3 className="font-display font-bold text-xl mb-3">{p.title}</h3>
-              <p className="text-primary-foreground/70 text-[15px] leading-relaxed">{p.body}</p>
+              <div className="col-span-10 sm:col-span-2 flex items-start">
+                <p.icon className="h-8 w-8 text-accent" strokeWidth={1.25} />
+              </div>
+              <h3 className="col-span-12 sm:col-span-4 font-display font-bold text-2xl leading-snug">
+                {p.title}
+              </h3>
+              <p className="col-span-12 sm:col-span-5 text-primary-foreground/70 text-[15px] leading-relaxed">
+                {p.body}
+              </p>
             </div>
           ))}
         </div>
 
-        <SectionNav prev={{ to: "/", label: "Open" }} next={{ to: "/difference", label: "Process" }} dark />
+        <SectionNav
+          prev={{ to: "/", label: "Open" }}
+          next={{ to: "/difference", label: "Process" }}
+          dark
+        />
       </div>
     </section>
   );
 }
 
-/* ---------------- 3. Difference ---------------- */
+/* ---------------- 3. Process ---------------- */
 
 const TIMELINE = [
   {
-    label: "Step 1 — Feasibility",
+    label: "Feasibility",
     title: "Test what the site can actually support",
     body: "Land planning, surveying, civil, and landscape architecture together evaluate grading, drainage, utilities, and environmental impacts before commitments are made.",
   },
   {
-    label: "Step 2 — Optimization",
+    label: "Optimization",
     title: "Engineering realities drive the plan",
     body: "Practical field knowledge plus advanced site optimization tools test ideas against real-world conditions — maximizing developable area and value.",
   },
   {
-    label: "Step 3 — Engineering",
+    label: "Engineering",
     title: "One integrated team, start to finish",
     body: "The same team that planned the site engineers it — so decisions made early carry through with no handoff loss.",
   },
 ];
 
+const DISCIPLINES = [
+  { icon: Compass, label: "Land Planning" },
+  { icon: Ruler, label: "Surveying" },
+  { icon: Workflow, label: "Civil Engineering" },
+  { icon: TreePine, label: "Landscape Architecture" },
+];
+
 export function Section3Difference() {
   return (
-    <section id="difference" className="relative py-32 pt-40">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid lg:grid-cols-12 gap-14">
-          <div className="lg:col-span-5 reveal">
-            <span className="font-mono text-xs text-brass">03 / Process</span>
-            <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary leading-[1.05]">
-              Planning driven by engineering realities.
+    <section id="difference" className="relative py-32 pt-40 overflow-hidden">
+      <ContourLines className="absolute -right-20 top-20 w-[55%] h-auto text-brass/12" />
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="grid lg:grid-cols-12 gap-12 mb-20">
+          <div className="lg:col-span-7 reveal">
+            <SectionMark num="03" label="Process" />
+            <h2 className="mt-6 font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.02]">
+              Planning driven by{" "}
+              <span className="underline-sweep">
+                <span className="text-brass">engineering realities.</span>
+              </span>
             </h2>
-            <div className="brass-rule mt-6" />
-            <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
-              What makes GCI different is that our planning process is driven by engineering
-              realities. Our integrated team works together from day one — combining practical
-              field knowledge, technical expertise, and advanced site optimization tools to
-              develop solutions that are both achievable and cost-effective.
-            </p>
-            <p className="mt-4 text-lg text-primary font-medium">
-              Reduce risk. Improve constructability. Maximize the value of the investment.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
-                <Compass className="h-3.5 w-3.5 text-brass" /> Land Planning
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
-                <Ruler className="h-3.5 w-3.5 text-brass" /> Surveying
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
-                <Workflow className="h-3.5 w-3.5 text-brass" /> Civil Engineering
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-xs">
-                <TreePine className="h-3.5 w-3.5 text-brass" /> Landscape Architecture
-              </span>
-            </div>
           </div>
-
-          <div className="lg:col-span-7">
-            <ol className="relative space-y-10">
-              <span className="absolute left-[15px] top-2 bottom-2 w-px bg-gradient-to-b from-brass via-brass/40 to-transparent" />
-              {TIMELINE.map((t, i) => (
-                <li
-                  key={t.title}
-                  className="reveal relative pl-12"
-                  style={{ animationDelay: `${i * 120}ms` }}
-                >
-                  <div className="absolute left-0 top-1 h-8 w-8 rounded-full bg-background border-2 border-brass grid place-items-center text-brass font-mono text-xs font-bold">
-                    {i + 1}
-                  </div>
-                  <div className="text-[11px] uppercase tracking-[0.2em] text-brass font-semibold mb-2">
-                    {t.label}
-                  </div>
-                  <h3 className="font-display font-bold text-2xl text-primary mb-2">{t.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{t.body}</p>
-                </li>
-              ))}
-            </ol>
+          <div className="lg:col-span-5 reveal flex flex-col justify-end">
+            <p className="text-lg text-muted-foreground leading-relaxed border-l-2 border-brass/60 pl-5">
+              Our integrated team works together from day one — combining practical field
+              knowledge, technical expertise, and advanced site optimization tools to develop
+              solutions that are both achievable and cost-effective.
+            </p>
+            <p className="mt-5 text-lg text-primary font-medium pl-5">
+              Reduce risk. Improve constructability. Maximize value.
+            </p>
           </div>
         </div>
 
-        <SectionNav prev={{ to: "/problem", label: "Approach" }} next={{ to: "/scale", label: "Proof" }} />
+        {/* Disciplines strip — icons adjacent to text, no pills */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-10 border-y border-border reveal">
+          {DISCIPLINES.map((d) => (
+            <div key={d.label} className="flex items-center gap-3">
+              <d.icon className="h-6 w-6 text-brass" strokeWidth={1.25} />
+              <span className="font-display text-base text-primary leading-tight">
+                {d.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Timeline — minimal, editorial */}
+        <div className="mt-20 grid lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-3 reveal">
+            <div className="text-brass/40">
+              <CrosshairMark className="w-32" />
+            </div>
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.25em] text-brass">
+              Three steps,
+              <br />
+              one continuous team
+            </p>
+          </div>
+          <ol className="lg:col-span-9 relative">
+            <span className="absolute left-[15px] top-2 bottom-2 w-px bg-gradient-to-b from-brass via-brass/40 to-transparent" />
+            {TIMELINE.map((t, i) => (
+              <li
+                key={t.title}
+                className="reveal relative pl-12 pb-12 last:pb-0"
+                style={{ animationDelay: `${i * 120}ms` }}
+              >
+                <div className="absolute left-0 top-1 h-8 w-8 bg-background border-2 border-brass grid place-items-center text-brass font-mono text-xs font-bold rotate-45">
+                  <span className="-rotate-45">{i + 1}</span>
+                </div>
+                <div className="text-[11px] uppercase tracking-[0.22em] text-brass font-semibold mb-2">
+                  Step {i + 1} — {t.label}
+                </div>
+                <h3 className="font-display font-bold text-2xl sm:text-3xl text-primary mb-3 leading-tight">
+                  {t.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed max-w-2xl">{t.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <SectionNav
+          prev={{ to: "/problem", label: "Approach" }}
+          next={{ to: "/scale", label: "Proof" }}
+        />
       </div>
     </section>
   );
 }
 
 /* ---------------- 4. Proof ---------------- */
-
 
 const PROJECTS = [
   {
@@ -410,37 +492,58 @@ export function Section5Scale() {
   return (
     <section id="scale" className="relative py-32 pt-40">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-3xl reveal">
-          <span className="font-mono text-xs text-brass">04 / Proof</span>
-          <h2 className="mt-4 font-display font-bold text-4xl sm:text-5xl text-primary leading-[1.05]">
-            We've applied that approach across projects of all sizes.
-          </h2>
-          <div className="brass-rule mt-6" />
-          <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
-            Industrial developments, municipal facilities, school campuses, recreational
-            destinations, residential communities — the goal stays the same: helping clients
-            make smarter decisions, reduce uncertainty, and move forward with confidence.
-          </p>
+        <div className="grid lg:grid-cols-12 gap-12 items-end">
+          <div className="lg:col-span-7 reveal">
+            <SectionMark num="04" label="Proof" />
+            <h2 className="mt-6 font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.02]">
+              Applied across projects of{" "}
+              <span className="underline-sweep">
+                <span className="text-brass">all sizes.</span>
+              </span>
+            </h2>
+          </div>
+          <div className="lg:col-span-5 reveal">
+            <p className="text-lg text-muted-foreground leading-relaxed border-l-2 border-brass/60 pl-5">
+              Industrial developments, municipal facilities, school campuses, recreational
+              destinations, residential communities — the goal stays the same: helping clients
+              make smarter decisions, reduce uncertainty, and move forward with confidence.
+            </p>
+          </div>
         </div>
 
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
+        {/* Editorial project list — text adjacent to a graphic column */}
+        <div className="mt-20 border-t border-border">
           {PROJECTS.map((p, i) => (
             <article
               key={p.name}
-              className="reveal hover-lift bg-card border border-border rounded-2xl p-7 shadow-elegant/40 flex flex-col"
+              className="reveal grid grid-cols-12 gap-6 sm:gap-10 py-14 border-b border-border items-start"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-brass font-semibold mb-4">
-                <MapPin className="h-3.5 w-3.5" /> {p.type}
+              <div className="col-span-12 sm:col-span-1 font-mono text-xs text-brass pt-3">
+                0{i + 1}
               </div>
-              <h3 className="font-display font-bold text-2xl text-primary mb-1">{p.name}</h3>
-              <div className="text-xs text-muted-foreground font-mono mb-4">{p.scale}</div>
-              <p className="text-[15px] text-muted-foreground leading-relaxed">{p.body}</p>
+              <div className="col-span-12 sm:col-span-3">
+                <div className="text-brass/50">
+                  <CrosshairMark className="w-16" />
+                </div>
+                <div className="mt-4 text-[10px] uppercase tracking-[0.22em] text-brass font-semibold">
+                  {p.type}
+                </div>
+                <div className="mt-1 text-xs text-muted-foreground font-mono">{p.scale}</div>
+              </div>
+              <div className="col-span-12 sm:col-span-8">
+                <h3 className="font-display font-bold text-3xl sm:text-4xl text-primary mb-4 leading-tight">
+                  {p.name}
+                </h3>
+                <p className="text-[16px] text-muted-foreground leading-relaxed max-w-3xl">
+                  {p.body}
+                </p>
+              </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-16 reveal-fade max-w-3xl mx-auto text-center">
+        <div className="mt-20 reveal-fade max-w-3xl mx-auto text-center">
           <p className="font-display text-2xl sm:text-3xl text-primary leading-snug">
             Because successful projects aren't built on{" "}
             <span className="text-muted-foreground line-through decoration-brass/60">
@@ -453,9 +556,20 @@ export function Section5Scale() {
               <span className="text-brass">better planning.</span>
             </span>
           </p>
+          <div className="mt-10">
+            <Link
+              to="/pitch"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:shadow-elegant"
+            >
+              Read the pitch <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
 
-        <SectionNav prev={{ to: "/difference", label: "Process" }} next={{ to: "/pitch", label: "Pitch" }} />
+        <SectionNav
+          prev={{ to: "/difference", label: "Process" }}
+          next={{ to: "/pitch", label: "Pitch" }}
+        />
       </div>
     </section>
   );
@@ -463,34 +577,36 @@ export function Section5Scale() {
 
 /* ---------------- 5. Pitch ---------------- */
 
-function Pillet({ icon: Icon, label }: { icon: typeof Users; label: string }) {
-  return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary border border-border text-primary text-sm">
-      <Icon className="h-3.5 w-3.5 text-brass" />
-      {label}
-    </span>
-  );
-}
-
 export function Section6Pitch() {
   return (
-    <section id="pitch" className="relative py-32 pt-40 overflow-hidden bg-gradient-hero">
-      <div className="mx-auto max-w-5xl px-6 text-center">
+    <section
+      id="pitch"
+      className="relative py-32 pt-40 overflow-hidden bg-gradient-hero"
+    >
+      <ContourLines className="absolute inset-x-0 top-0 w-full h-[50%] text-brass/12" />
+      <div className="relative mx-auto max-w-5xl px-6">
         <div className="reveal">
-          <span className="font-mono text-xs text-brass">05 / The Pitch</span>
-          <h2 className="mt-4 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.02]">
+          <SectionMark num="05" label="The Pitch" />
+          <h2 className="mt-6 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-primary leading-[1.02]">
             So — what do I tell prospective clients?
           </h2>
-          <p className="mt-6 italic text-brass text-lg sm:text-xl">
+          <p className="mt-6 italic text-brass text-lg sm:text-xl border-l-2 border-brass/60 pl-5 max-w-2xl">
             Where feasibility, optimization, and engineering work as one.
           </p>
         </div>
 
-        <div className="mt-14 reveal">
-          <div className="relative bg-card border border-border rounded-3xl p-10 sm:p-14 shadow-elegant text-left">
-            <div className="absolute -top-3 left-10 px-3 py-1 rounded-full bg-accent text-accent-foreground text-[10px] font-semibold uppercase tracking-[0.2em]">
-              Presentable Pitch
+        {/* Editorial pitch — text broken by a contour rule + crosshair, no card */}
+        <div className="mt-16 reveal grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-2 hidden lg:flex flex-col items-start gap-6 text-brass/50">
+            <CrosshairMark className="w-20" />
+            <div className="h-32 w-px bg-brass/40 ml-10" />
+            <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-brass">
+              Presentable
+              <br />
+              Pitch
             </div>
+          </div>
+          <div className="lg:col-span-10 border-l-2 border-brass/40 pl-6 lg:pl-10">
             <p className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-primary leading-[1.18]">
               At GCI, we bring land planning, surveying, civil engineering, and landscape
               architecture together from{" "}
@@ -499,33 +615,48 @@ export function Section6Pitch() {
               </span>{" "}
               — to help clients make smarter decisions before costly commitments are made.
             </p>
-            <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed">
+            <p className="mt-8 text-lg sm:text-xl text-muted-foreground leading-relaxed">
               By combining feasibility, optimization, and engineering into one integrated
               process, we reduce risk, maximize site potential, and help projects move from
               vision to reality with confidence.
             </p>
-            <div className="mt-10 pt-8 border-t border-border flex flex-wrap items-center justify-between gap-6">
-              <p className="font-display font-extrabold text-2xl text-primary">
+
+            <div className="mt-12 pt-8 border-t border-border">
+              <p className="font-display font-extrabold text-3xl sm:text-4xl text-primary">
                 Built on{" "}
                 <span className="underline-sweep">
                   <span className="text-brass">better planning.</span>
                 </span>
               </p>
-              <div className="flex items-center gap-3 flex-wrap">
-                <Pillet icon={Compass} label="Feasibility" />
-                <Pillet icon={Workflow} label="Optimization" />
-                <Pillet icon={Ruler} label="Engineering" />
+              <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm font-nav text-muted-foreground">
+                <span className="flex items-center gap-2">
+                  <Compass className="h-4 w-4 text-brass" /> Feasibility
+                </span>
+                <span className="h-3 w-px bg-border" />
+                <span className="flex items-center gap-2">
+                  <Workflow className="h-4 w-4 text-brass" /> Optimization
+                </span>
+                <span className="h-3 w-px bg-border" />
+                <span className="flex items-center gap-2">
+                  <Ruler className="h-4 w-4 text-brass" /> Engineering
+                </span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 reveal-fade">
+        <div className="mt-16 reveal-fade flex flex-wrap items-center gap-6">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all hover:shadow-elegant"
           >
             ↑ Run the pitch again
+          </Link>
+          <Link
+            to="/scale"
+            className="inline-flex items-center gap-2 text-sm font-nav text-primary hover:text-accent transition-colors"
+          >
+            <ArrowRight className="h-3.5 w-3.5 rotate-180" /> Back to proof
           </Link>
         </div>
 
@@ -539,23 +670,39 @@ export function Section6Pitch() {
 
 type NavTarget = { to: "/" | "/problem" | "/difference" | "/scale" | "/pitch"; label: string };
 
-function SectionNav({ prev, next, dark }: { prev?: NavTarget; next?: NavTarget; dark?: boolean }) {
+function SectionNav({
+  prev,
+  next,
+  dark,
+}: {
+  prev?: NavTarget;
+  next?: NavTarget;
+  dark?: boolean;
+}) {
   const baseLink = dark
     ? "text-primary-foreground/80 hover:text-brass"
     : "text-muted-foreground hover:text-primary";
   const borderC = dark ? "border-primary-foreground/15" : "border-border";
   return (
-    <div className={`mt-24 pt-8 border-t ${borderC} flex items-center justify-between gap-4 text-sm font-nav`}>
+    <div
+      className={`mt-24 pt-8 border-t ${borderC} flex items-center justify-between gap-4 text-sm font-nav`}
+    >
       <div>
         {prev && (
-          <Link to={prev.to} className={`inline-flex items-center gap-2 ${baseLink} transition-colors`}>
+          <Link
+            to={prev.to}
+            className={`inline-flex items-center gap-2 ${baseLink} transition-colors`}
+          >
             <ArrowRight className="h-3.5 w-3.5 rotate-180" /> {prev.label}
           </Link>
         )}
       </div>
       <div>
         {next && (
-          <Link to={next.to} className={`inline-flex items-center gap-2 ${baseLink} transition-colors`}>
+          <Link
+            to={next.to}
+            className={`inline-flex items-center gap-2 ${baseLink} transition-colors`}
+          >
             {next.label} <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         )}
@@ -563,3 +710,6 @@ function SectionNav({ prev, next, dark }: { prev?: NavTarget; next?: NavTarget; 
     </div>
   );
 }
+
+// Suppress unused-import warning — Users icon kept for potential future use.
+void Users;
